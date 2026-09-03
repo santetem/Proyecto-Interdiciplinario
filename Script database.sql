@@ -2,7 +2,7 @@ drop database if exists remax;
 create database remax;
 use remax;
 
-create table usuarios (
+create table Usuarios (
     id_usuario int auto_increment primary key,
     nombre varchar(100) not null,
     apellido varchar(100) not null,
@@ -12,13 +12,13 @@ create table usuarios (
     dni varchar(20) not null unique
 );
 
-create table roles (
+create table Roles (
     id_rol int auto_increment primary key,
     nombre varchar(100) not null,
     descripcion varchar(255)
 );
 
-create table permisos (
+create table Permisos (
     id_permiso int auto_increment primary key,
     nombre varchar(100) not null,
     descripcion varchar(255)
@@ -40,7 +40,7 @@ create table RelacionPermisos (
     foreign key (id_permiso) references permisos(id_permiso)
 );
 
-create table SoliFranquicia (
+create table SoliFranquicias (
     id_solicitud int auto_increment primary key,
     id_usuario int not null,
     fecha date not null,
@@ -55,7 +55,7 @@ create table Franquicias (
     nombre varchar(150) not null,
     direccion varchar(255) not null,
     estado varchar(50) not null,
-    foreign key (id_solicitud) references SoliFranquicia(id_solicitud)
+    foreign key (id_solicitud) references SoliFranquicias(id_solicitud)
 );
 
 create table Personales (
