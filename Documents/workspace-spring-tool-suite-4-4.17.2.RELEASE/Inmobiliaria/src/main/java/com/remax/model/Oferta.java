@@ -1,14 +1,13 @@
 package com.remax.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
 @Entity
-@Table(name = "ofertas")
+@Table(name = "Ofertas")
 public class Oferta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_oferta")
@@ -22,12 +21,32 @@ public class Oferta {
     @JoinColumn(name = "id_inmueble", nullable = false)
     private Inmueble inmueble;
 
-    @Column(nullable = false, precision = 15, scale = 2)
+    @Column(name = "monto", nullable = false, precision = 15, scale = 2)
     private BigDecimal monto;
 
-    @Column(nullable = false)
+    @Column(name = "fecha", nullable = false)
     private LocalDateTime fecha;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "estado", nullable = false, length = 50)
     private String estado;
+
+    public Oferta() {}
+
+    public Integer getIdOferta() { return idOferta; }
+    public void setIdOferta(Integer idOferta) { this.idOferta = idOferta; }
+
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+
+    public Inmueble getInmueble() { return inmueble; }
+    public void setInmueble(Inmueble inmueble) { this.inmueble = inmueble; }
+
+    public BigDecimal getMonto() { return monto; }
+    public void setMonto(BigDecimal monto) { this.monto = monto; }
+
+    public LocalDateTime getFecha() { return fecha; }
+    public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 }
