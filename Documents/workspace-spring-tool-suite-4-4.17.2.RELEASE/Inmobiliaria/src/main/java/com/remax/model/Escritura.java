@@ -1,13 +1,12 @@
 package com.remax.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import java.time.LocalDate;
 
-@Data
 @Entity
-@Table(name = "escrituras")
+@Table(name = "Escrituras")
 public class Escritura {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_escritura")
@@ -24,6 +23,23 @@ public class Escritura {
     @Column(name = "fecha")
     private LocalDate fecha;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "estado", nullable = false, length = 50)
     private String estado;
+
+    public Escritura() {}
+
+    public Integer getIdEscritura() { return idEscritura; }
+    public void setIdEscritura(Integer idEscritura) { this.idEscritura = idEscritura; }
+
+    public Venta getVenta() { return venta; }
+    public void setVenta(Venta venta) { this.venta = venta; }
+
+    public Escribania getEscribania() { return escribania; }
+    public void setEscribania(Escribania escribania) { this.escribania = escribania; }
+
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 }
