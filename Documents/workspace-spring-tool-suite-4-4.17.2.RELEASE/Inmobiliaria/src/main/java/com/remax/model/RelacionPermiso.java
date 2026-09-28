@@ -1,12 +1,11 @@
 package com.remax.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "relacionpermisos")
+@Table(name = "RelacionPermisos")
 public class RelacionPermiso {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_relpermiso")
@@ -19,4 +18,15 @@ public class RelacionPermiso {
     @ManyToOne
     @JoinColumn(name = "id_permiso", nullable = false)
     private Permiso permiso;
+
+    public RelacionPermiso() {}
+
+    public Integer getIdRelpermiso() { return idRelpermiso; }
+    public void setIdRelpermiso(Integer idRelpermiso) { this.idRelpermiso = idRelpermiso; }
+
+    public Rol getRol() { return rol; }
+    public void setRol(Rol rol) { this.rol = rol; }
+
+    public Permiso getPermiso() { return permiso; }
+    public void setPermiso(Permiso permiso) { this.permiso = permiso; }
 }
