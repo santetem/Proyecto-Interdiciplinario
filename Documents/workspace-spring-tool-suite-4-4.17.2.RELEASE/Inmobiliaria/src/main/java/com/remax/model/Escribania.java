@@ -1,23 +1,36 @@
 package com.remax.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "escribanias")
+@Table(name = "Escribanias")
 public class Escribania {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_escribania")
     private Integer idEscribania;
 
-    @Column(nullable = false, length = 150)
+    @Column(name = "nombre", nullable = false, length = 150)
     private String nombre;
 
-    @Column(length = 50)
+    @Column(name = "telefono", length = 50)
     private String telefono;
 
-    @Column(length = 150)
+    @Column(name = "correo", length = 150)
     private String correo;
+
+    public Escribania() {}
+
+    public Integer getIdEscribania() { return idEscribania; }
+    public void setIdEscribania(Integer idEscribania) { this.idEscribania = idEscribania; }
+
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
 }
