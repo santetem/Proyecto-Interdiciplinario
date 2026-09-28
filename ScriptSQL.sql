@@ -279,3 +279,58 @@ create table Auditorias (
     foreign key (id_inmueble) references Inmuebles(id_inmueble),
     foreign key (id_usuario) references usuarios(id_usuario)
 );
+
+
+DELIMITER //
+
+-- 1. Consultar todos los registros de cualquier tabla
+CREATE PROCEDURE sp_ObtenerTodos(
+    IN p_tabla VARCHAR(64)
+)
+BEGIN
+    SET @sql = CONCAT('SELECT * FROM ', p_tabla);
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END //
+
+-- 2. Consultar un registro por ID en cualquier tabla
+CREATE PROCEDURE sp_ObtenerPorId(
+    IN p_tabla VARCHAR(64),
+    IN p_campo_id VARCHAR(64),
+    IN p_id INT
+)
+BEGIN
+    SET @sql = CONCAT('SELECT * FROM ', p_tabla, ' WHERE ', p_campo_id, ' = ?');
+    PREPARE stmt FROM @sql;
+    SET @id_val = p_id;
+    EXECUTE stmt USING @id_val;
+    DEALLOCATE PREPARE stmt;
+END //
+
+-- 3. Eliminar un registro por ID en cualquier tabla
+CREATE PROCEDURE sp_EliminarPorId(
+    IN p_tabla VARCHAR(64),
+    IN p_campo_id VARCHAR(64),
+    IN p_id INT
+)
+BEGIN
+    SET @sql = CONCAT('DELETE FROM ', p_tabla, ' WHERE ', p_campo_id, ' = ?');
+    PREPARE stmt FROM @sql;
+    SET @id_val = p_id;
+    EXECUTE stmt USING @id_val;
+    DEALLOCATE PREPARE stmt;
+END //
+
+-- 4. Contar la cantidad total de registros de cualquier tabla
+CREATE PROCEDURE sp_ContarRegistros(
+    IN p_tabla VARCHAR(64)
+)
+BEGIN
+    SET @sql = CONCAT('SELECT COUNT(*) AS total_registros FROM ', p_tabla);
+    PREPARE stmt FROM @sql;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END //
+
+DELIMITER ;
