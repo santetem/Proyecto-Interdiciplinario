@@ -1,5 +1,0 @@
-package com.remax.dao;
-
-public interface CaracteristicaRepository {
-
-}
