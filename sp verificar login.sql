@@ -5,6 +5,6 @@ create procedure sp_verificar_login(
 )
 begin
     select * from usuarios 
-    where correo = p_correo and contrasena = p_contrasena;
+    where correo = p_correo and upassword = p_contrasena;
 end //
 DELIMITER ;
