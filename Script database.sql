@@ -100,6 +100,7 @@ create table Inmuebles (
     cantidad_banos int,
     cantidad_cocheras int,
     antiguedad_estado varchar(100),
+    localidad varchar(100) not null,
     foreign key (id_captacion) references Captaciones(id_captacion),
     foreign key (id_propietario) references Usuarios(id_usuario)
 );
