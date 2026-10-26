@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | REMAX</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="pagina-login">
+        <div class="tarjeta-login">
+            <h1>Iniciar Sesión</h1>
+
+            <form id="form-login">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="correo@ejemplo.com">
+
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="••••••••">
+
+                <button type="submit">Ingresar</button>
+                <p id="mensaje-respuesta"></p>
+                <p>
+                    ¿No tienes una cuenta?
+                    <a href="registro.html">Registrate</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

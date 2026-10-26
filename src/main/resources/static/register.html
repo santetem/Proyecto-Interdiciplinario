@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse | REMAX</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <div class="pagina-registro">
+        <div class="tarjeta-registro">
+            <h1>Crear Cuenta</h1>
+
+            <!-- ID cambiado a 'registerForm' para que lo detecte el JS -->
+            <form id="registerForm">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="María" required>
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" placeholder="Wang" required>
+
+                <!-- Campo TAG agregado (obligatorio por tu BD) -->
+                <label for="tag">Tag (Usuario)</label>
+                <input type="text" id="tag" placeholder="maria_wang" required>
+
+                <label for="dni">DNI</label>    
+                <input type="text" id="dni" placeholder="12345678" required>
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+
+                <!-- ID cambiado a 'upassword' para que coincida con tu objeto JS -->
+                <label for="upassword">Contraseña</label>
+                <input type="password" id="upassword" placeholder="••••••••" required>
+
+                <button type="submit" id="btnRegistrar">Registrarse</button>
+                
+                <!-- ID cambiado a 'mensaje' para que el JS muestre el estado ahí -->
+                <p id="mensaje"></p>
+                
+                <p>
+                    ¿Ya tienes una cuenta?
+                    <a href="login.html">Inicia sesión</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Asegurate de que el archivo JS se llame igual que tu script -->
+    <script src="register.js"></script>
+</body>
+</html>
