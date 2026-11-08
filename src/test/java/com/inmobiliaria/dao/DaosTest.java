@@ -67,6 +67,9 @@ public class DaosTest {
         Conexion c = Conexion.getInstance();
         assertNotNull(c);
     }
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 }

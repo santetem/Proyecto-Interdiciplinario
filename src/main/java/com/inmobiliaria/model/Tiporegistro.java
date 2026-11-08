@@ -2,7 +2,10 @@ package com.inmobiliaria.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "tiporegistro")
@@ -20,6 +23,7 @@ public class Tiporegistro {
     @Column(name = "descripcion", length = 255)
     private String descripcion;
 
+<<<<<<< HEAD
     public Tiporegistro() {
     }
 
@@ -35,6 +39,9 @@ public class Tiporegistro {
     }
 
     // --- GETTERS Y SETTERS ---
+=======
+    // Getters y Setters
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     public Integer getIdTipo() { return idTipo; }
     public void setIdTipo(Integer idTipo) { this.idTipo = idTipo; }
 
@@ -43,6 +50,7 @@ public class Tiporegistro {
 
     public String getDescripcion() { return descripcion; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+<<<<<<< HEAD
 
     // --- MÉTODOS OBJECT ---
     @Override
@@ -66,4 +74,6 @@ public class Tiporegistro {
                 ", descripcion='" + descripcion + '\'' +
                 '}';
     }
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 }

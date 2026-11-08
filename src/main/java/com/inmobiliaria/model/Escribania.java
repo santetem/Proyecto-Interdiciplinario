@@ -1,8 +1,13 @@
 package com.inmobiliaria.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+<<<<<<< HEAD
 import jakarta.persistence.*;
 import java.util.Objects;
+=======
+
+import jakarta.persistence.*;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "escribanias")
@@ -14,6 +19,7 @@ public class Escribania {
     @Column(name = "id_escribania")
     private Integer idEscribania;
 
+<<<<<<< HEAD
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
@@ -76,3 +82,24 @@ public class Escribania {
                 '}';
     }
 }
+=======
+    @Column(name = "nombre", nullable = false, length = 150)
+    private String nombre;
+
+    @Column(name = "telefono", length = 50)
+    private String telefono;
+
+    @Column(name = "correo", length = 150)
+    private String correo;
+
+    // Getters y Setters
+    public Integer getIdEscribania() { return idEscribania; }
+    public void setIdEscribania(Integer idEscribania) { this.idEscribania = idEscribania; }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public String getCorreo() { return correo; }
+    public void setCorreo(String correo) { this.correo = correo; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

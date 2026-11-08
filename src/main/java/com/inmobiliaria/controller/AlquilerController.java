@@ -9,7 +9,11 @@ import com.inmobiliaria.model.Alquiler;
 @RequestMapping("/alquileres")
 public class AlquilerController {
 
+<<<<<<< HEAD
     // Se declara usando la INTERFAZ 
+=======
+    // Se declara usando la INTERFAZ (como pide tu profe)
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private final AlquilerRepository alquilerDao;
 
     // Spring inyecta la implementación automáticamente mediante el constructor
@@ -53,9 +57,15 @@ public class AlquilerController {
         }
     }
 
+<<<<<<< HEAD
     @PutMapping("/{id}")
     public boolean modificar(@PathVariable("id") int id, @RequestBody Alquiler a) {
         if (id <= 0 || a == null || a.getOperacion() == null) return false;
+=======
+    @PutMapping
+    public boolean modificar(@RequestBody Alquiler a) {
+        if (a == null || a.getIdAlquiler() == null || a.getIdAlquiler() <= 0) return false;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
         try {
             String fechaFinStr = (a.getFechaFin() != null) ? "'" + a.getFechaFin() + "'" : "NULL";
             String setValores = "id_operacion = " + a.getOperacion().getIdOperacion() 
@@ -64,7 +74,11 @@ public class AlquilerController {
                               + ", monto = " + a.getMonto()
                               + ", estado = '" + a.getEstado() + "'";
             
+<<<<<<< HEAD
             alquilerDao.actualizarSP(setValores, id);
+=======
+            alquilerDao.actualizarSP(setValores, a.getIdAlquiler());
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
             return true;
         } catch (Exception e) {
             System.err.println("Error al modificar alquiler: " + e.getMessage());
@@ -74,7 +88,11 @@ public class AlquilerController {
 
     @PatchMapping("/{id}")
     public boolean actualizarMonto(@PathVariable("id") int id, @RequestBody Alquiler cuerpoParcial) {
+<<<<<<< HEAD
         if (id <= 0 || cuerpoParcial == null || cuerpoParcial.getMonto() == null) return false;
+=======
+        if (id <= 0 || cuerpoParcial.getMonto() == null) return false;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
         try {
             String setValores = "monto = " + cuerpoParcial.getMonto();
             alquilerDao.actualizarSP(setValores, id);
@@ -96,4 +114,8 @@ public class AlquilerController {
             return false;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

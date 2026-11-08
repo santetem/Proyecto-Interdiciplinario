@@ -1,5 +1,6 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -8,6 +9,16 @@ import java.util.Objects;
 @Entity
 @Table(name = "captaciones")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+@Entity
+@Table(name = "captaciones")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // <-- Agregá esto
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 public class Captacion {
 
     @Id
@@ -16,13 +27,20 @@ public class Captacion {
     private Integer idCaptacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
+<<<<<<< HEAD
     @JoinColumn(name = "id_operador", nullable = false)
+=======
+    @JoinColumn(name = "id_operador")
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Usuario operador;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_propietario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario propietario;
 
     @Column(name = "caracteristicas", columnDefinition = "TEXT")
@@ -34,6 +52,7 @@ public class Captacion {
     @Column(name = "estado", nullable = false, length = 50)
     private String estado;
 
+<<<<<<< HEAD
     @Column(name = "observaciones", length = 255)
     private String observaciones;
 
@@ -104,3 +123,24 @@ public class Captacion {
                 '}';
     }
 }
+=======
+    @Column(name = "observaciones", columnDefinition = "TEXT")
+    private String observaciones;
+
+    // Getters y Setters
+    public Integer getIdCaptacion() { return idCaptacion; }
+    public void setIdCaptacion(Integer idCaptacion) { this.idCaptacion = idCaptacion; }
+    public Usuario getOperador() { return operador; }
+    public void setOperador(Usuario operador) { this.operador = operador; }
+    public Usuario getPropietario() { return propietario; }
+    public void setPropietario(Usuario propietario) { this.propietario = propietario; }
+    public String getCaracteristicas() { return caracteristicas; }
+    public void setCaracteristicas(String caracteristicas) { this.caracteristicas = caracteristicas; }
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+    public String getObservaciones() { return observaciones; }
+    public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

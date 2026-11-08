@@ -60,6 +60,10 @@ public class ModelosTest {
         Venta v = new Venta();
         v.setIdVenta(1);
         v.setEstado("Finalizada");
+<<<<<<< HEAD
+=======
+        // Corregido: BigDecimal en lugar de Double
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
         v.setMontoFinal(new BigDecimal("200000.00"));
         assertEquals(1, v.getIdVenta());
         assertEquals("Finalizada", v.getEstado());

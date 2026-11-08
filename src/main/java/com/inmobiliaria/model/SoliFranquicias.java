@@ -1,9 +1,16 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "solifranquicias")
@@ -17,7 +24,10 @@ public class SoliFranquicias {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario usuario;
 
     @Column(name = "fecha", nullable = false)
@@ -26,6 +36,7 @@ public class SoliFranquicias {
     @Column(name = "estado", nullable = false, length = 50)
     private String estado;
 
+<<<<<<< HEAD
     @Column(name = "observaciones", length = 255)
     private String observaciones;
 
@@ -86,3 +97,20 @@ public class SoliFranquicias {
                 '}';
     }
 }
+=======
+    @Column(name = "observaciones", columnDefinition = "TEXT")
+    private String observaciones;
+
+    // Getters y Setters
+    public Integer getIdSolicitud() { return idSolicitud; }
+    public void setIdSolicitud(Integer idSolicitud) { this.idSolicitud = idSolicitud; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+    public String getObservaciones() { return observaciones; }
+    public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

@@ -1,10 +1,18 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "ventas")
@@ -18,7 +26,10 @@ public class Venta {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_operacion", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Operacion operacion;
 
     @Column(name = "fecha", nullable = false)
@@ -30,6 +41,7 @@ public class Venta {
     @Column(name = "estado", nullable = false, length = 50)
     private String estado;
 
+<<<<<<< HEAD
     public Venta() {
     }
 
@@ -88,3 +100,17 @@ public class Venta {
                 '}';
     }
 }
+=======
+    // Getters y Setters
+    public Integer getIdVenta() { return idVenta; }
+    public void setIdVenta(Integer idVenta) { this.idVenta = idVenta; }
+    public Operacion getOperacion() { return operacion; }
+    public void setOperacion(Operacion operacion) { this.operacion = operacion; }
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
+    public BigDecimal getMontoFinal() { return montoFinal; }
+    public void setMontoFinal(BigDecimal montoFinal) { this.montoFinal = montoFinal; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

@@ -1,10 +1,18 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "ofertas")
@@ -18,23 +26,34 @@ public class Oferta {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_inmueble", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Inmueble inmueble;
 
     @Column(name = "monto", nullable = false, precision = 15, scale = 2)
     private BigDecimal monto;
 
     @Column(name = "fecha", nullable = false)
+<<<<<<< HEAD
     private LocalDate fecha;
+=======
+    private LocalDateTime fecha;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
     @Column(name = "estado", nullable = false, length = 50)
     private String estado;
 
+<<<<<<< HEAD
     public Oferta() {
     }
 
@@ -98,3 +117,19 @@ public class Oferta {
                 '}';
     }
 }
+=======
+    // Getters y Setters
+    public Integer getIdOferta() { return idOferta; }
+    public void setIdOferta(Integer idOferta) { this.idOferta = idOferta; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public Inmueble getInmueble() { return inmueble; }
+    public void setInmueble(Inmueble inmueble) { this.inmueble = inmueble; }
+    public BigDecimal getMonto() { return monto; }
+    public void setMonto(BigDecimal monto) { this.monto = monto; }
+    public LocalDateTime getFecha() { return fecha; }
+    public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

@@ -1,9 +1,16 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "comisiones")
@@ -17,12 +24,18 @@ public class Comision {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_operacion", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Operacion operacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario usuario;
 
     @Column(name = "porcentaje", nullable = false, precision = 5, scale = 2)
@@ -34,6 +47,7 @@ public class Comision {
     @Column(name = "estado", nullable = false, length = 50)
     private String estado;
 
+<<<<<<< HEAD
     public Comision() {
     }
 
@@ -97,3 +111,19 @@ public class Comision {
                 '}';
     }
 }
+=======
+    // Getters y Setters
+    public Integer getIdComision() { return idComision; }
+    public void setIdComision(Integer idComision) { this.idComision = idComision; }
+    public Operacion getOperacion() { return operacion; }
+    public void setOperacion(Operacion operacion) { this.operacion = operacion; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public BigDecimal getPorcentaje() { return porcentaje; }
+    public void setPorcentaje(BigDecimal porcentaje) { this.porcentaje = porcentaje; }
+    public BigDecimal getMonto() { return monto; }
+    public void setMonto(BigDecimal monto) { this.monto = monto; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

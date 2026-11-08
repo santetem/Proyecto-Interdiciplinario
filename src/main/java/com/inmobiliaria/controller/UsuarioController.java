@@ -2,14 +2,20 @@ package com.inmobiliaria.controller;
 
 import com.inmobiliaria.model.Usuario;
 import com.inmobiliaria.dao.ImplementacionUsuarioRepository;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @RestController
 @RequestMapping("/api/usuarios")
 @CrossOrigin(origins = "*")
 public class UsuarioController {
 
+<<<<<<< HEAD
     private final ImplementacionUsuarioRepository usuarioDao;
 
     // Inyección de dependencias por constructor (Altamente recomendado en Spring)
@@ -26,6 +32,10 @@ public class UsuarioController {
     public Usuario buscarPorId(@PathVariable("id") int id) {
         return usuarioDao.buscarPorIdSP(id);
     }
+=======
+    @Autowired
+    private ImplementacionUsuarioRepository usuarioDao;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
     @PostMapping("/register")
     public String registrarUsuario(@RequestBody Usuario u) {

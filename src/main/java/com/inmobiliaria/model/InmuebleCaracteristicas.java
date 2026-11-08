@@ -1,15 +1,23 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "inmueble_caracteristicas")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class InmuebleCaracteristicas implements Serializable {
 
+<<<<<<< HEAD
     @EmbeddedId
     private InmuebleCaracteristicasId id;
 
@@ -104,3 +112,21 @@ public class InmuebleCaracteristicas implements Serializable {
         }
     }
 }
+=======
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_inmueble", nullable = false)
+    private Inmueble inmueble;
+
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_caracteristica", nullable = false)
+    private Caracteristica caracteristica;
+
+    // Getters y Setters
+    public Inmueble getInmueble() { return inmueble; }
+    public void setInmueble(Inmueble inmueble) { this.inmueble = inmueble; }
+    public Caracteristica getCaracteristica() { return caracteristica; }
+    public void setCaracteristica(Caracteristica caracteristica) { this.caracteristica = caracteristica; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

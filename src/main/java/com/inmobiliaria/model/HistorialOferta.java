@@ -1,10 +1,18 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "historial_oferta")
@@ -14,16 +22,26 @@ public class HistorialOferta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_histoferta")
+<<<<<<< HEAD
     private Integer idHistoferta;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_oferta", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+    private Integer idHistOferta;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_oferta", nullable = false)
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Oferta oferta;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario usuario;
 
     @Column(name = "fecha", nullable = false)
@@ -35,6 +53,7 @@ public class HistorialOferta {
     @Column(name = "monto", precision = 15, scale = 2)
     private BigDecimal monto;
 
+<<<<<<< HEAD
     @Column(name = "observaciones", length = 255)
     private String observaciones;
 
@@ -106,3 +125,24 @@ public class HistorialOferta {
                 '}';
     }
 }
+=======
+    @Column(name = "observaciones", columnDefinition = "TEXT")
+    private String observaciones;
+
+    // Getters y Setters
+    public Integer getIdHistOferta() { return idHistOferta; }
+    public void setIdHistOferta(Integer idHistOferta) { this.idHistOferta = idHistOferta; }
+    public Oferta getOferta() { return oferta; }
+    public void setOferta(Oferta oferta) { this.oferta = oferta; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public LocalDateTime getFecha() { return fecha; }
+    public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+    public String getAccion() { return accion; }
+    public void setAccion(String accion) { this.accion = accion; }
+    public BigDecimal getMonto() { return monto; }
+    public void setMonto(BigDecimal monto) { this.monto = monto; }
+    public String getObservations() { return observaciones; }
+    public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

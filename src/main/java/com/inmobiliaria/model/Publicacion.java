@@ -1,9 +1,16 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "publicaciones")
@@ -17,11 +24,15 @@ public class Publicacion {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_inmueble", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Inmueble inmueble;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_agente", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Usuario agente;
 
@@ -79,3 +90,20 @@ public class Publicacion {
                 '}';
     }
 }
+=======
+    private Usuario agente;
+
+    @Column(name = "fecha", nullable = false)
+    private LocalDateTime fecha;
+
+    // Getters y Setters
+    public Integer getIdPublicacion() { return idPublicacion; }
+    public void setIdPublicacion(Integer idPublicacion) { this.idPublicacion = idPublicacion; }
+    public Inmueble getInmueble() { return inmueble; }
+    public void setInmueble(Inmueble inmueble) { this.inmueble = inmueble; }
+    public Usuario getAgente() { return agente; }
+    public void setAgente(Usuario agente) { this.agente = agente; }
+    public LocalDateTime getFecha() { return fecha; }
+    public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

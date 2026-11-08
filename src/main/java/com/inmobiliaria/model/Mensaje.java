@@ -1,9 +1,16 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "mensajes")
@@ -17,12 +24,18 @@ public class Mensaje {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_conversacion", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Conversacion conversacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario usuario;
 
     @Column(name = "fecha_hora", nullable = false)
@@ -31,6 +44,7 @@ public class Mensaje {
     @Column(name = "contenido", nullable = false, columnDefinition = "TEXT")
     private String contenido;
 
+<<<<<<< HEAD
     @Column(name = "estado", length = 50)
     private String estado;
 
@@ -96,3 +110,22 @@ public class Mensaje {
                 '}';
     }
 }
+=======
+    @Column(name = "estado", nullable = false, length = 50)
+    private String estado;
+
+    // Getters y Setters
+    public Integer getIdMensaje() { return idMensaje; }
+    public void setIdMensaje(Integer idMensaje) { this.idMensaje = idMensaje; }
+    public Conversacion getConversacion() { return conversacion; }
+    public void setConversacion(Conversacion conversacion) { this.conversacion = conversacion; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public LocalDateTime getFechaHora() { return fechaHora; }
+    public void setFechaHora(LocalDateTime fechaHora) { this.fechaHora = fechaHora; }
+    public String getContenido() { return contenido; }
+    public void setContenido(String contenido) { this.contenido = contenido; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

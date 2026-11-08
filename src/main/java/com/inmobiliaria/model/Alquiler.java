@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "alquileres")
@@ -33,6 +36,7 @@ public class Alquiler {
     @Column(name = "estado", nullable = false, length = 50)
     private String estado;
 
+<<<<<<< HEAD
     // 1. Constructor Vacío 
     public Alquiler() {
     }
@@ -130,4 +134,24 @@ public class Alquiler {
                 ", estado='" + estado + '\'' +
                 '}';
     }
+=======
+    // Getters y Setters
+    public Integer getIdAlquiler() { return idAlquiler; }
+    public void setIdAlquiler(Integer idAlquiler) { this.idAlquiler = idAlquiler; }
+    
+    public Operacion getOperacion() { return operacion; }
+    public void setOperacion(Operacion operacion) { this.operacion = operacion; }
+    
+    public LocalDate getFechaInicio() { return fechaInicio; }
+    public void setFechaInicio(LocalDate fechaInicio) { this.fechaInicio = fechaInicio; }
+    
+    public LocalDate getFechaFin() { return fechaFin; }
+    public void setFechaFin(LocalDate fechaFin) { this.fechaFin = fechaFin; }
+    
+    public BigDecimal getMonto() { return monto; }
+    public void setMonto(BigDecimal monto) { this.monto = monto; }
+    
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 }

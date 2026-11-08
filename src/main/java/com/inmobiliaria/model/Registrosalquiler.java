@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "registrosalquiler")
@@ -38,6 +41,7 @@ public class Registrosalquiler {
     @Column(name = "observaciones", length = 255)
     private String observaciones;
 
+<<<<<<< HEAD
     public Registrosalquiler() {
     }
 
@@ -61,6 +65,9 @@ public class Registrosalquiler {
     }
 
     // --- GETTERS Y SETTERS ---
+=======
+    // Getters y Setters
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     public Integer getIdRegistro() { return idRegistro; }
     public void setIdRegistro(Integer idRegistro) { this.idRegistro = idRegistro; }
 
@@ -81,6 +88,7 @@ public class Registrosalquiler {
 
     public String getObservaciones() { return observaciones; }
     public void setObservaciones(String observaciones) { this.observaciones = observaciones; }
+<<<<<<< HEAD
 
     // --- MÉTODOS OBJECT ---
     @Override
@@ -105,4 +113,6 @@ public class Registrosalquiler {
                 ", estado='" + estado + '\'' +
                 '}';
     }
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 }

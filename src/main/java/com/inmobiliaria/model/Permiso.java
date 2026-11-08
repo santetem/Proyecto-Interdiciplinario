@@ -1,8 +1,15 @@
 package com.inmobiliaria.model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.Objects;
+=======
+import jakarta.persistence.*;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "permisos")
@@ -20,6 +27,7 @@ public class Permiso {
     @Column(name = "descripcion", length = 255)
     private String descripcion;
 
+<<<<<<< HEAD
     public Permiso() {
     }
 
@@ -67,3 +75,18 @@ public class Permiso {
                 '}';
     }
 }
+=======
+    @ManyToMany(mappedBy = "permisos")
+    private List<Rol> roles;
+
+    // Getters y Setters
+    public Integer getIdPermiso() { return idPermiso; }
+    public void setIdPermiso(Integer idPermiso) { this.idPermiso = idPermiso; }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public List<Rol> getRoles() { return roles; }
+    public void setRoles(List<Rol> roles) { this.roles = roles; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f

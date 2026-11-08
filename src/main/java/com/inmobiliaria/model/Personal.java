@@ -1,8 +1,13 @@
 package com.inmobiliaria.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+<<<<<<< HEAD
 import jakarta.persistence.*;
 import java.util.Objects;
+=======
+
+import jakarta.persistence.*;
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
 
 @Entity
 @Table(name = "personales")
@@ -16,11 +21,15 @@ public class Personal {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+=======
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_franquicia")
+<<<<<<< HEAD
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Franquicia franquicia;
 
@@ -69,3 +78,15 @@ public class Personal {
                 '}';
     }
 }
+=======
+    private Franquicia franquicia;
+
+    // Getters y Setters
+    public Integer getIdPersonal() { return idPersonal; }
+    public void setIdPersonal(Integer idPersonal) { this.idPersonal = idPersonal; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+    public Franquicia getFranquicia() { return franquicia; }
+    public void setFranquicia(Franquicia franquicia) { this.franquicia = franquicia; }
+}
+>>>>>>> bf73e566c8a2e2d2c65852ba999fcf15a7fc866f
