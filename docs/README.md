@@ -1,4 +1,4 @@
-nmobiliaria – API REST (Spring Boot + MySQL)
+Inmobiliaria – API REST (Spring Boot + MySQL)
 
 Frontend (HTML/CSS/JS estilo REMAX) -> API en STS (puerto 8086) -> MySQL en phpMyAdmin (base remax).
 
