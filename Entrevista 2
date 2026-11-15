@@ -33,141 +33,73 @@ Entrevistador: ¿Quién puede realizar una oferta sobre un inmueble?
 Cliente: Estamos hablando de una persona que utiliza el aplicativo online y encuentra una propiedad que le interesa para alquilar o comprar, ¿cierto? Cualquier persona que esté correctamente registrada en el sistema tiene que poder ofertar.
 Entrevistador: También queríamos consultar sobre los roles y sus funciones exactas. Según lo que nos comentó un profesor, todos deberían poder hacer todo, es decir, una persona podría tener varios roles. Queremos saber cuáles son las funciones de cada rol y cuántos roles existen dentro de toda la organización.
 Cliente: Tenés los usuarios corrientes, finales o cooperativos, que son los que adquieren los servicios. Un usuario básico puede adquirir servicios, comprar, alquilar, ofrecer algo para la venta y buscar propiedades en el catálogo.
-
 Después tenés los usuarios que pertenecen a las franquicias, que tienen determinados permisos. No van a tener los mismos permisos que los usuarios básicos, ya que podrán controlar las publicaciones.
-
 También están los responsables de los locales, que son quienes adquieren el permiso para pertenecer a REMAX. Ellos tienen permisos de mayor nivel que los usuarios básicos.
-
 Entrevistador: Entonces, ¿habría que definir cuáles son las operaciones que cada tipo de usuario tiene permitidas y cuáles no?
-
 Cliente: Sí. Dentro de los requerimientos tienen que verificar cuáles corresponden a cada tipo de usuario.
-
 Por ejemplo, un usuario básico no puede realizar una tasación de una propiedad. Eso lo tiene que hacer un agente de REMAX.
-
 Un productor o agente de REMAX, aunque no pertenezca a la organización principal, puede manipular los datos de las publicaciones y gestionarlas.
-
 El usuario básico no establece directamente el precio de venta del inmueble. Solamente puede ingresar información para que después sea revisada y filtrada por los locales.
-
 La publicación completa y su administración quedan bajo la responsabilidad del agente inmobiliario.
-
 Entrevistador: Entonces, ¿el algoritmo calcula el valor de la propiedad y el agente puede modificarlo?
-
 Cliente: Sí. El algoritmo calcula un valor, pero el agente tiene que poder modificarlo según corresponda.
-
 Los agentes de REMAX tienen un interés sobre la venta. Por eso, tienen que poder ajustar el valor que establece el sistema.
-
 El cliente que está vendiendo también tiene que estar de acuerdo con el precio. La última palabra la tiene siempre el vendedor, con su correspondiente autorización.
-
 Por eso, el agente inmobiliario tiene que poder modificar manualmente el valor de la tasación.
-
 Entrevistador: Entonces, el usuario básico solamente puede cargar información, pero no manipular directamente los datos de la publicación que se visualizará.
-
 Cliente: Exactamente. El usuario puede cargar la información de su inmueble, pero el control de la publicación lo tiene el agente inmobiliario.
-
 El propietario tendrá una interfaz donde pueda cargar la información de su inmueble, pero quien administra la publicación es el agente.
-
 Entrevistador: ¿El propietario puede modificar la tasación que generó el algoritmo o solamente puede hacerlo el agente inmobiliario?
-
 Cliente: Solamente el agente inmobiliario.
-
 Entrevistador: En cuanto a los escribanos, ¿tienen un usuario externo dentro del sistema o solamente habrá un apartado interno donde el agente pueda cambiar manualmente el estado de la carpeta, por ejemplo, cuando está en escribanía?
-
 Cliente: Eso lo tiene que poder administrar el agente inmobiliario.
-
 Entrevistador: Entonces, ¿el escribano no interactúa directamente con el sistema?
-
 Cliente: No. El escribano no pertenece al sistema. El seguimiento del trámite de escribanía y toda la gestión se realiza por fuera del sistema, a cargo del personal inmobiliario.
-
 Lo que sí tiene que estar contemplado en la base de datos es la información del estado del trámite. El agente inmobiliario tiene que poder cargar y actualizar ese estado manualmente. No está vinculado automáticamente con la escribanía.
-
 Entrevistador: ¿El sistema puede establecer automáticamente los porcentajes de comisión correspondientes a cada parte? Por ejemplo, un porcentaje para la sucursal, otro para la casa central y otro para quien gestionó la propiedad.
-
 Cliente: Lo que se puede hacer es que haya valores preestablecidos, pero que sean modificables.
-
 Entrevistador: ¿Quién define qué porcentaje le corresponde a cada parte? ¿Un superior al agente inmobiliario, por ejemplo, un gerente?
-
 Cliente: Esos valores los establece el personal jerárquico de REMAX.
-
 Entrevistador: Entonces, ¿los usuarios de mayor nivel, como los gerentes, serían quienes podrían modificar esos porcentajes?
-
 Cliente: Sí. Los usuarios de mayor nivel son quienes tienen los permisos para manipular esos valores.
-
 Entrevistador: Cuando se realiza el cobro, ¿el sistema descuenta automáticamente los gastos, como mantenimiento, comisiones e impuestos, y le muestra al propietario el importe final que recibió?
-
 Cliente: No. Eso también se tiene que especificar manualmente, porque depende mucho de cada tipo de venta.
-
 Tiene que haber campos en los formularios para cada tipo de concepto, pero esos valores los establece directamente el agente inmobiliario.
-
 Entrevistador: En cuanto a las franquicias, ¿el sistema tiene que contemplar el procesamiento de una solicitud para abrir una nueva franquicia? Es decir, ¿debería existir un formulario para solicitarla?
-
 Cliente: Sí, eso está bueno. Si alguien quiere poner una franquicia de REMAX, debería poder ingresar directamente a un formulario online y postularse.
-
 Entrevistador: ¿Esa solicitud estaría vinculada con el alta de la nueva franquicia? Por ejemplo, alguien del sector gerencial o administrativo tendría permisos para aprobarla y dar de alta al nuevo local.
-
 Cliente: Sí. El sector administrativo de REMAX tendría que tener permisos para dar de alta a los nuevos integrantes o franquicias.
-
 Entrevistador: ¿Qué información se debería guardar cuando una persona realiza una inversión en pozo?
-
 Cliente: Básicamente, el valor a invertir y la especificación de aquello que se va a obtener una vez construido el inmueble.
-
 Se deberían guardar las características del inmueble, el domicilio donde estará ubicado, la empresa a cargo de la construcción, cuál es el valor necesario para ingresar a la inversión y el plazo estimado de entrega.
-
 También tendría que existir algún mecanismo que permita iniciar la transacción y dar de alta al interesado como posible cliente.
-
 La gente del área inmobiliaria podría dar de alta a la persona que solicita la compra en pozo.
-
 Por ejemplo, cuando uno compra un departamento en pozo, ya sabe qué departamento le va a tocar y qué características va a tener. El sistema debería permitir guardar una descripción del departamento que se está prometiendo entregar a cambio de esa inversión.
-
 Después, en algún momento, se da de alta esa compra y tiene que efectuarse la entrega del comprobante correspondiente.
-
 Entrevistador: En cuanto a las franquicias, ¿una franquicia puede consultar o modificar propiedades cargadas por otra franquicia? ¿El inventario es privado para cada franquicia o pertenece a la empresa?
-
 Cliente: Primero hay que entender que una franquicia no comienza a operar hasta que la empresa REMAX haya realizado todas las verificaciones necesarias y esté todo en orden.
-
 Una vez que se acepta y se da de alta, puede comenzar a funcionar como franquicia de la empresa.
-
 Con respecto al inventario, hay que distinguir qué cosas son propiedad de REMAX y cuáles pertenecen a la franquicia.
-
 Cuando alguien adquiere una franquicia, paga por el derecho a pertenecer a la organización. Ese pago incluye una serie de cosas, como materiales, instructivos, capacitación y otros recursos.
-
 Algunos elementos pueden entregarse en comodato. Por ejemplo, algún dispositivo electrónico que utilice el local y que siga siendo propiedad de REMAX.
-
 Lo que no se entrega en comodato queda a cargo de la persona que pagó por la franquicia.
-
 Si tengo que darles una respuesta rápida, el inventario es de la franquicia, no de la empresa.
-
 Entrevistador: En cuanto a la protección de los clientes, el sistema va a manejar mucha información. ¿Qué datos sensibles deberían estar restringidos? Por ejemplo, documentación, títulos o balances de clientes. ¿Deberían ser visibles únicamente para perfiles gerenciales?
-
 Cliente: No se obtuvo una respuesta concreta y completa sobre los niveles de acceso a los datos sensibles durante esta parte de la entrevista.
-
 Entrevistador: En cuanto a la capacitación, ¿se deberían evaluar los conocimientos de los nuevos vendedores o darles acceso a una biblioteca de capacitación online con manuales y documentación?
-
 Cliente: ¿Se refieren a capacitar a los nuevos vendedores para pertenecer a REMAX?
-
 Entrevistador: Sí. El requerimiento menciona un sistema de capacitación para nuevos agentes. ¿Cómo debería funcionar?
-
 Cliente: Ustedes van a tener que proponer cuál sería la mejor alternativa. Podría ser un sistema de documentación online.
-
 También podrían combinarse los manuales en línea con materiales audiovisuales, como videos de YouTube vinculados con esos documentos.
-
 Entrevistador: Entonces, ¿podría ser una combinación de documentación y videos?
-
 Cliente: Sí. Con eso está bien. No agreguemos demasiadas cosas que no están contempladas en los requerimientos, porque si no se vuelve muy complicado e inviable.
-
 Entrevistador: En el sistema que nosotros planteamos, primero existe la captación y después la publicación del inmueble. La captación se crea cuando un cliente trae una solicitud y luego se crea el inmueble.
-
 No sabemos si, en una captación, se puede rechazar un inmueble. En caso de que se rechace, no sabemos si la información debería guardarse o eliminarse del sistema.
-
 Cliente: Lo ético es que, si se rechaza el inmueble, se elimine del sistema. Sería lo más apropiado. Y, obviamente, tiene que existir la posibilidad de rechazarlo.
-
 Por ejemplo, si alguien viene y ofrece un departamento, pero yo sé que es un mafioso y me ofrece esa propiedad para trabajar con mi empresa, me estoy exponiendo. Por lo tanto, tengo todo el derecho de rechazarlo.
-
 Al mismo tiempo, no tiene ningún sentido que esa información permanezca en el sistema.
-
 Entrevistador: Perfecto, entonces, si una captación es rechazada, la información del inmueble debería eliminarse.
-
 Cliente: Exactamente.
-
 Entrevistador: Bueno, muchas gracias.
 
 Cliente: Gracias.
