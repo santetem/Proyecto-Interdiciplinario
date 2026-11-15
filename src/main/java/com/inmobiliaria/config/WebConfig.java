@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.inmobiliaria.security.AuthInterceptor;
 
-/** Registra el control de acceso por roles y habilita CORS para el frontend. */
+
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 

@@ -16,14 +16,7 @@ import com.inmobiliaria.security.Sesion;
 import com.inmobiliaria.service.IUsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
 
-/**
- *   POST /api/usuarios/register  201 | 400 | 409   público
- *   POST /api/usuarios/login     200 | 400 | 401   público (devuelve token)
- *   POST /api/usuarios/logout    200                requiere sesión
- *   GET  /api/usuarios/me        200 | 401          requiere sesión
- *   GET  /api/usuarios           200 | 401 | 403    Administrador
- *   GET  /api/usuarios/{id}      200 | 404          Administrador
- */
+
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {

@@ -1,4 +1,4 @@
--- OPCIONAL.  (remax) ya trae usuarios de prueba con rol (clave 123456):
+-- OPCIONAL. base (remax) ya trae usuarios de prueba con rol (clave 123456):
 --   santiago.diaz@remax.com      -> Cliente
 --   jeremias.nieto@remax.com     -> Propietario
 --   alba.spitalnik@remax.com     -> Agente

@@ -10,15 +10,7 @@ import com.inmobiliaria.security.RequiereRol;
 import com.inmobiliaria.security.Roles;
 import com.inmobiliaria.service.IInmuebleService;
 
-/**
- * Controller REST de Inmuebles. Solo traduce HTTP <-> Service (no tiene lógica de negocio).
- *   GET    /inmuebles        200  público (lo usa el frontend tipo REMAX)
- *   GET    /inmuebles/{id}   200 | 404  público
- *   POST   /inmuebles        201 | 400 | 401 | 403   Administrador, Gerente, Agente
- *   PUT    /inmuebles/{id}   200 | 400 | 404 ...      Administrador, Gerente, Agente
- *   PATCH  /inmuebles/{id}   200 | 400 | 404 ...      Administrador, Gerente, Agente
- *   DELETE /inmuebles/{id}   200 | 404                Administrador
- */
+
 @RestController
 @RequestMapping("/inmuebles")
 public class InmuebleController {
