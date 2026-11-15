@@ -54,27 +54,3 @@ Detalles de la Base de Datos:
 * sp_ConcretarVenta: valida la oferta, genera la operación, la venta y la comisión correspondiente (hace rollback si algo falla).
 * Los triggers de MySQL (por ejemplo, cuando la superficie cubierta es mayor a la total, o si mandan un monto menor o igual a cero) tiran un SQLSTATE 45000 que la API intercepta y devuelve prolijamente como un 400 Bad Request con el mensaje original del trigger.
 * Contraseñas: las nuevas se guardan hasheadas con BCrypt, pero por compatibilidad con los datos de prueba el login también se banca contraseñas en texto plano (como 123456).
-
-3. Versión de Java y Tomcat
-
-* El proyecto está armado para Java 17 (java.version 17 en el pom.xml) y Spring Boot 3.2.5. Asegúrense de tener JDK/JRE 17 instalado.
-* No hace falta instalar Tomcat por fuera: Spring Boot ya viene con un Tomcat 10.1 embebido. Con hacer Run As -> Spring Boot App desde STS ya levanta perfecto. Tomcat 10.1 es el indicado para Spring Boot 3 (Jakarta EE 10).
-* Si en algún momento hay que exportar el .war para un servidor externo con Tomcat 10.1, también compila bien gracias al SpringBootServletInitializer.
-* Por las dudas: Antes de arrancar, hagan clic derecho al proyecto -> Maven -> Update Project (Alt+F5), y chequeen en las Properties (Java Compiler / Project Facets) que esté apuntando a la versión 17.
-
-4. Guía rápida para probarlo
-5. Levantar XAMPP (Apache y MySQL), entrar a phpMyAdmin e importar el archivo remax.sql (crea la base remax con el usuario root sin contraseña). Los datos de prueba ya vienen con usuarios precargados. El script docs/sql/opcional_asignar_roles.sql está por si hace falta asignar algún rol extra a mano.
-6. Abrir STS, importar el proyecto y hacerle un Run As -> Spring Boot App (corre por defecto en el puerto 8086).
-7. Abrir Postman, importar la colección que está en docs/postman/ y correr primero la carpeta de Usuarios y Login para que guarde automáticamente los tokens en las variables de entorno.
-8. Para correr los tests desde la PC: clic derecho al proyecto -> Run As -> JUnit Test (o con consola ejecutando mvn test).
-9. Checklist antes de entregar (Git)
-
-* Correr git status y verificar que no hayan quedado conflictos abiertos (<<<<<<< / >>>>>>>).
-* Si aparece alguno, resolverlo, hacer git add, su respectivo git commit.
-* Chequear con git shortlog -sn que salgan los commits de todos los integrantes del grupo.
-* Verificar que la carpeta target/ esté ignorada y no se suba al repositorio (ya debería estar en el .gitignore).
-
-6. Organización de la documentación
-
-* La documentación grupal (diagrama, colección de Postman, scripts SQL y este mismo archivo) queda en la carpeta docs/.
-* Cada integrante tiene además su propia carpeta individual en el repo (por ejemplo: docs/individual//) con sus notas o avances personales.
