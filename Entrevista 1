@@ -1,0 +1,74 @@
+Cliente: Buenos días.
+​Entrevistador: Buenos días. Queríamos ofrecer una aplicación sobre inmobiliaria. Queríamos saber el problema principal.
+​Cliente: Bueno, problemas... Sí, tenemos muchos problemas. Ahora se los voy a leer, así no perdemos tiempo, ¿por favor?
+​¿Qué pasa? Bueno, nosotros fuimos haciendo un punteo de los cuales tendría que solucionar nuestro nuevo programa.
+​Espere porque quiero ver si estoy con la organización que corresponde o me fui para cualquier lado.
+​¡Bajen por favor un poco la voz, gracias!
+​Bueno, nosotros manejamos un inventario, ¿sí? Entonces el inventario no es posible actualmente consultarlo en tiempo real. No es que yo no puedo entrar a un sistema, a mi sistema, y ver directamente el inventario en tiempo real, sino que a veces no está actualizado. Bien, ese es un punto.
+​Esto me llama la atención porque esto no sé si es correcto el punteo que está hecho acá, porque lo veo por primera vez, no lo hice yo y no sé si se ajusta a lo que...
+​Bueno, otro problema. Lo voy a tratar de adaptar para que ustedes entiendan cuál es la situación.
+​Entrevistador: Sí, por favor.
+​Cliente: Como hay mala logística en el sentido de que las cosas no llegan a tiempo, sean papeles o información, lo que sea, no se terminan de concretar las operaciones porque, bueno, no está coordinada la información, ¿sí? Entonces no es que todos los actores no tienen en tiempo real la información necesaria para poder avanzar rápidamente con las operaciones, sea de alquiler, de venta, de lo que sea.
+​También pasa con el tema de... claro, nosotros como somos una cadena, le entregamos cosas a nuestros clientes. Tenemos como representantes, ¿vieron cómo son las cadenas inmobiliarias que tienen representantes de la firma que no son directamente vinculados con la firma? Entonces, a veces no les llega a esta gente, a nuestros clientes, no les llega a tiempo las cosas que necesitan, ¿sí? Materiales para trabajar, equipamiento, lo que sea.
+​A veces también lo que ocurre es que no coincide lo que nosotros pensamos que tenemos disponible para repartir y lo que realmente hay. Entonces, bueno, nos encontramos a buscar algo y no está, ¿sí?
+​Después el tema de los costos, sí. El tema de los costos también hay costos que el sistema actual no logra detectar, ¿sí? No logramos detectar con este sistema los costos reales de las cosas que hacemos, ¿sí?
+​Después hay falla de comunicación entre departamentos. Perdemos clientes porque no tenemos la velocidad necesaria para atenderlos, solucionar, digamos, las consultas.
+​No tenemos los suficientes reportes para la toma de decisiones. A la hora de hacer facturación también nos aparecen problemas, porque hacemos muchas facturas y bueno, en la cantidad se producen errores.
+​En la gestión de los proveedores también presenta problemas. Los plazos de entrega... La entrega del departamento o lo que sea de la vivienda también no podemos llegar, no llegamos a los plazos digamos de la finalización de las operaciones.
+​No podemos trazar los procesos correctamente. No se pueden trazar, es decir, por ejemplo, una venta, ¿sí? Desde que se... desde que hay un candidato a una venta hasta que se concreta, perdemos todos los pasos intermedios que hay ahí porque no hay una buena trazabilidad, ¿sí?
+​Los métodos que usamos actualmente no son... no son ya... quedaron obsoletos.
+​Hay riesgo de la información que manejamos. Manejamos información sensible de los clientes que a veces está expuesta.
+​Tenemos mucha rotación de personal.
+​Y... ¡bajemos por favor la voz!
+​Y algunos productos que manejamos no están teniendo la rentabilidad que nosotros quisiéramos, también producto de que no tenemos un sistema adecuado.
+​Esos son los problemas que enfrentamos en este momento.
+​Entrevistador: ¿Y cómo piensa usted que debería funcionar la aplicación?
+​Cliente: Bueno... ¿en términos de qué? ¿De lo que debe hacer?
+​Entrevistador: Lo que debe lograr. ¿Qué funciones puede tener adentro?
+​Cliente: Bueno, yo quiero poder captar y tasar propiedades con el sistema, ¿sí? Que el sistema lo contemple a eso. Poder hacer una ficha técnica completa de un inmueble, ¿bien? Por ejemplo: fotos, videos, ¿sí?, incluso vistas de 360 grados. ¿Estamos?
+​Quiero poder publicar en forma simultánea la propiedad en distintos medios, ¿sí?, mediante acciones por medio del sistema.
+​Seguimiento de prospectos, es decir, de posibles compradores. Es decir, un sistema que permita administrar clientes sería, ¿sí?
+​Que pueda manipular también el sistema una agenda de visitas a departamentos o viviendas o propiedades. Que se pueda gestionar desde el sistema también las ofertas y la negociación de los precios.
+​Que se puedan alquilar... también desde el sistema permita gestionar los alquileres y las cobranzas.
+​Que haga una liquidación... que se pueda hacer liquidación automática a los propietarios. Cuando se finaliza un contrato hay que hacer una liquidación, ¿sí?
+​Alertas de... que haga alertas de mantenimiento de las unidades, ¿sí?, donde haya que hacer algo que te lo recuerde el sistema.
+​Que permita hacer gestión legal también de contratos, de señas, de escrituras. Que permita calcular comisiones de los agentes de las oficinas.
+​Que permita también hacer reportes de rendimiento, metas por agente, de ventas obviamente.
+​Que también permita gestionar los contactos que nos traen clientes, ¿no? Dice: "sistema de referidos y alianzas estratégicas". Es decir, de alguna forma que contemple el sistema las alianzas con contactos que nos facilitan algo, ¿sí? Por ejemplo las ventas, especialmente las ventas.
+​Que el sistema también automatice lo que es los cálculos según la zona de lo que es la evaluación de una vivienda, de un inmueble.
+​Que permita gestionar también lo que es las franquicias y las sucursales. Es decir, que para si vos te querés anotar como Remax, que tengas a través del sistema la posibilidad de gestionar tu cuenta, ¿sí?, crearte como usuario, entablar digamos una relación comercial con la marca, ¿estamos?
+​Que se pueda firmar en forma digital las autorizaciones de venta de un... y no que sea algo digamos tradicional, sino que sea directamente gestionado por el sistema.
+​Que se pueda hacer seguimiento de trámites en la escribanía. Las escribanías son externas a la organización, entonces bueno, que de alguna forma permita hacer un seguimiento del trabajo de los escribanos.
+​Un módulo que al, por ejemplo, al usuario le permita invertir en pozo, en construcción.
+​Después, marketing inmobiliario... en el sentido de: bueno, que podamos hacer difusión de ofertas nuestras, a eso se refiere con marketing inmobiliario, ¿sí? Que el sistema automatice el envío de información de ofertas de publicidad a nuestros contactos.
+​Después, que se puedan gestionar los gastos operativos también desde el sistema.
+​Que también contemple la capacitación a los nuevos vendedores, que entren al sistema los vendedores nuevos y se puedan capacitar.
+​Después, que el sistema también permita auditar el estado de las propiedades, es decir, llevar un control sobre el estado de una propiedad determinada, en forma periódica.
+​Que permita también chat con clientes desde un navegador, el sistema.
+​Y por último, que presente un panel en vivo, un dashboard, con métricas de ventas, ese tipo de cosas. Ventas, alquileres, precios, variación de los precios... Eso es todo lo que tiene que hacer el sistema.
+​Entrevistador: Okay. ¿Y cuántos usuarios piensa que manejarán la aplicación?
+​Cliente: No, bueno, es una aplicación grande porque la idea es que abarque a nivel nacional e incluso internacional, debería llegar a expandirse.
+​Entrevistador: No, decía tipos de usuario.
+​Cliente: ¿Tipos de usuario? Bueno, tenés un usuario... bueno, tenés el operador de ventas, que no es de la empresa sino que se crea una cuenta, genera un vínculo como vendedor de la marca, pero que no pertenece a la organización. Podría ser un local en cualquier barrio, ¿sí?
+​Después tenés el sector digamos administrativo de la marca, ¿sí?, que va a gestionar un montón de cosas. Va a tener más permisos obviamente que aquellos que usan el sistema más como externos, ¿sí?
+​Después tenés un sector gerencial de la marca, que va a poder tener digamos control mayor de lo que es el sistema. Va a tener acceso pleno a la información que va administrando. Y va a tener reportes también, obviamente.
+​Y... ¿qué más me está faltando? Y del otro lado están los usuarios de... que contratan servicios o que adquieren inmuebles, ese tipo de cosas. Que te puedas como usuario de Remax te puedas autenticar, puedas, no sé, pedir ver un departamento, incluso iniciar una gestión de un alquiler o de una compra. También están los que quieren vender o alquilar, que también tienen que tener acceso al sistema.
+​Ahí, ojo, porque ahí me confundí. No es que cualquier usuario como si fuera Mercado Libre puede entrar al sistema, a la aplicación, y ofrecer su... No es un intermediario el sistema, sino que el sistema es para la gestión de los vendedores por un lado, y aquellos que quieren adquirir algo, ¿sí? Y por otro lado todo lo que tenga que ver con la organización interna de la marca: el sector administrativo y el sector gerencial. Esos serían los roles.
+​Entrevistador: Okay. Para la parte de los inmuebles, ¿cómo debería ser el proceso a partir de que ingresan hasta que se señalan? ¿Cómo es el proceso de un inmueble desde que ingresa a la inmobiliaria hasta que se...?
+​Cliente: Bueno, vos tenés los agentes, ¿no?, que son los operadores para la marca. Que puede ser una persona que tiene un local y que es una inmobiliaria de barrio, pero que trabaja para nuestra marca. Entonces hace todo el trabajo de relevamiento, de buscar un inmueble para vender o para alquilar, lo que sea.
+​Puede ser que el mismo dueño del... el mismo responsable del local haga una compra personal y quiera ofrecer eso para la venta, o que haya... que sea intermediario, que tenga una persona que quiera vender, con lo cual se acerca al local y el ejecutivo del local, el operador inmobiliario, bueno, entabla ahí un registro de qué vivienda se va a alquilar o vender o propiedad que sea, de qué forma, qué es lo que quiere el dueño, ¿sí? Y eso se va a publicar, o sea, se va a elevar al sistema para ponerlo disponible para alquiler o venta, lo que sea.
+​Después, del otro lado tenés a aquel que está interesado en obtener algo, en que quiera alquilar o comprar una propiedad, ¿estamos? Más o menos el proceso a grandes rasgos se trata de eso.
+​Entrevistador: Okay. ¿Qué información se debe poner de cada inmueble? Dijiste imágenes, videos, 360... ¿Algo más?
+​Cliente: Bueno, tenés que poder subir foto, videos e incluso grabaciones de 360, que te muestre todo, como 360, que dé toda una vuelta a un espacio.
+​Entrevistador: ¿Algo más? ¿El costo...?
+​Cliente: Sí, toda la información referida de la propiedad, sí: el valor que solicita el propietario para la venta o el alquiler. Claro, todas las características del inmueble, sí: si tiene habitaciones, si no tiene habitaciones... Todo lo que se suele ver en un sitio como ZonaProp o eso cuando vos visualizás una publicación.
+​También cuestiones contractuales, sí, si va a ser... la venta va a ser mediante escribanía. Nosotros mismo la marca establece requisitos para poder hacer las operaciones, tiene que ser mediante escribano, hay que cumplir ciertas cuestiones legales, hay que registrarlo, hay que hacer un informe para al ente regulador de estas operaciones, etcétera.
+​Entrevistador: Okay. ¿Cómo puede funcionar el proceso de una tasación?
+​Cliente: Para la tasación, bueno, el cliente se acerca al local o también puede ofrecer para tasar mediante el sistema. El usuario digamos final, o no sé cómo llamarlo, la persona que se acerca a la inmobiliaria puede ser en forma online mediante formulario ofrecer algo, y ahí ya entra en contacto el operador inmobiliario con esta persona que quiere ofrecer algo. También puede ir directamente al local y gestionárselo el operador inmobiliario lo que quiera hacer.
+​Entrevistador: ¿Solo tenemos un local?
+​Cliente: No, no. Los locales son todos aquellos que se anoten como franquicia de la marca. Es como pasa con otras franquicias de otros rubros, ¿sí? La marca ofrece la infraestructura, todo el esquema de trabajo, y después cualquiera que quiera trabajar con la firma se ofrece y después ahí hay una cuestión administrativa de darlo de alta, ver si cumple las condiciones para que sea digamos el operador para la marca y demás. Así funcionan las franquicias hoy.
+​Entrevistador: Okay, ¿y qué se puede registrar de la tasación? O sea, ¿los datos del...?
+​Cliente: Todas las características del inmueble, y después con eso, en forma automatizada, según un algoritmo que vamos a usar, se va a establecer el valor de esa propiedad, ¿sí? Tiene que ser un proceso que sea intermediado por una persona, ¿sí? El tema de la valuación de un departamento no va a ser automática, sino que tiene que tener una parte automatizada que establezca un estimado según las características que nosotros le carguemos: "va a estar ubicado en tal parte", "es contrafrente", "es frente", no sé, "está en un décimo piso", "en planta baja", y así. Un montón de características que va a tener el inmueble que, según eso, el sistema nos va a tirar automáticamente cuánto debería ser un aproximado de la tasación, pero después se tiene que poder hacer una variación manual.
+​Que la parte administrativa y el que tenga acceso a tocar eso manualmente, que no... digamos no que haya una tasación automatizada, ¿sí? Solo como una referencia. La tasación automatizada que sea una referencia, pero que aquel que tenga permisos sobre el sistema sí pueda hacer una modificación.
+​Entrevistador: Okay. Y hasta ahí...
+​Cliente: ¿No hay más nada? Mejor, porque así puedo seguir con la otra entrevista. Después si queda algo que falte, se vuelve a hablar.
