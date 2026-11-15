@@ -1,0 +1,81 @@
+classDiagram
+direction LR
+class InmuebleController {
+  -IInmuebleService inmuebleService
+  +listarTodo() ResponseEntity
+  +buscarPorId(id) ResponseEntity
+  +registrar(dto) ResponseEntity
+  +modificar(id, dto) ResponseEntity
+  +actualizarParcial(id, dto) ResponseEntity
+  +eliminar(id) ResponseEntity
+}
+class IInmuebleService {
+  <<interface>>
+  +listarTodo() List~InmuebleDTO~
+  +buscarPorId(id) InmuebleDTO
+  +registrar(dto)
+  +modificar(id, dto)
+  +actualizarParcial(id, dto)
+  +eliminar(id)
+}
+class ImplementacionInmuebleService
+class IDaoFactory {
+  <<interface>>
+  +getInmuebleDao() InmuebleRepository
+  +getUsuarioDao() UsuarioRepository
+  +getCaptacionDao() CaptacionRepository
+}
+class MySQLDaoFactory
+class IGenericDao~T, ID~ {
+  <<interface>>
+  +listarTodosSP() List~T~
+  +buscarPorIdSP(id) T
+  +insertarSP(columnas, valores)
+  +actualizarSP(set, id)
+  +eliminarPorIdSP(id)
+}
+class InmuebleRepository {
+  <<interface>>
+}
+class ImplementacionGenericDao~T, ID~ {
+  <<abstract>>
+  #EntityManager entityManager
+}
+class ImplementacionInmuebleRepository
+class Inmueble {
+  -Integer idInmueble
+  -String direccion
+  -String tipoInmueble
+  -String localidad
+}
+class InmuebleDTO
+class Usuario
+class Captacion
+class SqlUtil {
+  +texto(String) String
+  +numero(Number) String
+  +fecha(LocalDate) String
+}
+class GlobalExceptionHandler
+class AuthInterceptor
+class RequiereRol {
+  <<annotation>>
+}
+InmuebleController --> IInmuebleService
+IInmuebleService <|.. ImplementacionInmuebleService
+ImplementacionInmuebleService --> IDaoFactory
+ImplementacionInmuebleService ..> SqlUtil
+ImplementacionInmuebleService ..> InmuebleDTO
+IDaoFactory <|.. MySQLDaoFactory
+MySQLDaoFactory ..> InmuebleRepository : entrega
+IGenericDao <|-- InmuebleRepository
+InmuebleRepository <|.. ImplementacionInmuebleRepository
+ImplementacionGenericDao <|-- ImplementacionInmuebleRepository
+IGenericDao <|.. ImplementacionGenericDao
+ImplementacionInmuebleRepository ..> Inmueble
+Inmueble --> Usuario : propietario
+Inmueble --> Captacion
+InmuebleDTO ..> Inmueble : desde()
+AuthInterceptor ..> RequiereRol : lee
+InmuebleController ..> RequiereRol
+GlobalExceptionHandler ..> InmuebleController : traduce errores a HTTP
