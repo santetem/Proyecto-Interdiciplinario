@@ -8,12 +8,7 @@ import com.inmobiliaria.exception.NoAutenticadoException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Se ejecuta ANTES de cada Controller. Si el método (o la clase) tiene @RequiereRol:
- *   - sin token válido            -> 401 Unauthorized
- *   - token válido pero sin rol   -> 403 Forbidden
- * Si todo está bien deja la sesión en el request para que el Controller la use.
- */
+
 @Component
 public class AuthInterceptor implements HandlerInterceptor {
 

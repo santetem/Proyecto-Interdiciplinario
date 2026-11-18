@@ -1,31 +1,38 @@
+/* ==========================================================
+   register.css: estilos de la pantalla de registro
+   ========================================================== */
+
+/* Reset: quita márgenes/rellenos por defecto y hace que width incluya padding y borde */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Fondo de toda la página: foto con un velo azul encima, y la tarjeta centrada */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(rgba(0, 34, 68, 0.5), rgba(0, 34, 68, 0.5)), 
-    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
+    background: linear-gradient(rgba(0, 34, 68, 0.5), rgba(0, 34, 68, 0.5)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80'); /* velo + foto */
+    background-size: cover;      /* la foto cubre toda la pantalla */
     background-position: center;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    min-height: 100vh;           /* alto mínimo = ventana; crece si el formulario es largo */
+    display: flex;               /* flex + las dos líneas de abajo = centra la tarjeta */
+    justify-content: center;     /* centrado horizontal */
+    align-items: center;         /* centrado vertical */
+    padding: 20px;               /* aire en celulares */
 }
 
+/* Tarjeta con efecto "vidrio esmerilado" */
 .tarjeta-registro {
-    background-color: rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.20);  /* blanco translúcido */
+    backdrop-filter: blur(8px);                   /* desenfoca el fondo que queda detrás */
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;                           /* esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);    /* sombra suave */
     width: 100%;
-    max-width: 420px;
+    max-width: 420px;                             /* ancho máximo en escritorio */
 }
 
 .tarjeta-registro h1 {
@@ -35,6 +42,7 @@ body {
     text-align: center;
 }
 
+/* Campos apilados uno debajo del otro */
 form {
     display: flex;
     flex-direction: column;
@@ -47,6 +55,7 @@ label {
     margin-bottom: 4px;
 }
 
+/* Todos los campos de texto, fecha, teléfono, etc. */
 input {
     padding: 10px 12px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -54,11 +63,26 @@ input {
     border: 1px solid #cccccc;
     border-radius: 4px;
     font-size: 14px;
-    outline: none;
+    outline: none;               /* quita el contorno por defecto (se reemplaza con :focus) */
 }
 
+/* Campo seleccionado: borde azul */
 input:focus {
     border-color: #002244;
+}
+
+/* Campo con error (la clase la agrega/quita register.js): borde rojo y fondo rosado suave */
+input.invalido {
+    border-color: #d32f2f;
+    background-color: rgba(255, 220, 220, 0.7);
+}
+
+/* Texto de ayuda bajo cada campo (ej: "8 números").
+   margin negativo arriba: lo acerca a su campo (compensa el margin-bottom del input) */
+.ayuda {
+    margin: -8px 0 12px;
+    font-size: 12px;
+    color: #1f2d3d;
 }
 
 button {
@@ -69,13 +93,13 @@ button {
     border-radius: 4px;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer;                              /* cursor de "manito" */
     margin-top: 5px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;       /* el cambio de color tarda 0,2 s */
 }
 
 button:hover {
-    background-color: #b01030;
+    background-color: #b01030;                    /* rojo más oscuro al pasar el mouse */
 }
 
 p {
@@ -85,7 +109,7 @@ p {
     text-align: center;
 }
 
-/* Estilo específico para el mensaje de éxito/error que maneja el JS */
+/* Mensaje de resultado o error (el color lo pone register.js) */
 #mensaje {
     font-weight: bold;
     margin-top: 12px;

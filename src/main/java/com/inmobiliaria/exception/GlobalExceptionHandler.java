@@ -11,12 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-/**
- * Traduce las excepciones de los Services a códigos HTTP.
- * Así los Controllers no devuelven "boolean" sino una respuesta HTTP real:
- * 400 datos inválidos, 401 sin sesión, 403 sin permiso, 404 no existe,
- * 409 duplicado, 500 error interno.
- */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -54,8 +49,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataAccessException.class)
     public ResponseEntity<Map<String, String>> baseDeDatos(DataAccessException e) {
-        // Los triggers y stored procedures de la base lanzan SQLSTATE 45000 con un mensaje de negocio
-        // (ej. "La superficie cubierta no puede ser mayor que la total"): es un error del cliente (400).
+    	e.printStackTrace();
         Throwable causa = e;
         while (causa != null) {
             if (causa instanceof SQLException && "45000".equals(((SQLException) causa).getSQLState())) {

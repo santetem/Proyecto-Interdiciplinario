@@ -3,6 +3,7 @@ package com.inmobiliaria.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -33,6 +34,13 @@ public class Usuario {
 
     @Column(name = "dni", nullable = false, unique = true, length = 20)
     private String dni;
+
+    // Nuevos: son NULL en la base para los usuarios viejos (por eso sin nullable=false)
+    @Column(name = "telefono", length = 20)
+    private String telefono;
+
+    @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
 
     public Usuario() {
     }
@@ -77,6 +85,12 @@ public class Usuario {
 
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
+
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+
+    public LocalDate getFechaNacimiento() { return fechaNacimiento; }
+    public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
 
     // --- MÉTODOS OBJECT ---
     @Override

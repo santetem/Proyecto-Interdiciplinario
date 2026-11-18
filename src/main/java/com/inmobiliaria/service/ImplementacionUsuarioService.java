@@ -2,6 +2,9 @@ package com.inmobiliaria.service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -55,25 +58,29 @@ public class ImplementacionUsuarioService implements IUsuarioService {
             if (d.getTag().equals(existente.getTag())) {
                 throw new ConflictoException("Ya existe un usuario con ese tag");
             }
-            if (d.getDni().equals(existente.getDni())) {
+            if (d.getDni().trim().equals(existente.getDni())) {
                 throw new ConflictoException("Ya existe un usuario con ese DNI");
             }
         }
         String hash = encoder.encode(d.getUpassword()); // la contraseña nunca se guarda en texto plano
+        LocalDate nacimiento = LocalDate.parse(d.getFechaNacimiento().trim()); // ya validada en validarRegistro
         Integer idRol = buscarIdRolPorDefecto();
         if (idRol != null) {
             // sp_AltaUsuarioConRol: crea usuario + rol en una sola transacción
             usuarioDao.altaUsuarioConRol(d.getNombre().trim(), d.getApellido().trim(), d.getTag().trim(),
-                    d.getCorreo().trim(), hash, d.getDni().trim(), idRol);
+                    d.getCorreo().trim(), hash, d.getDni().trim(),
+                    d.getTelefono().trim(), nacimiento, idRol);
         } else {
-            String columnas = "nombre, apellido, tag, correo, upassword, dni";
+            String columnas = "nombre, apellido, tag, correo, upassword, dni, telefono, fecha_nacimiento";
             String valores = String.join(", ",
                     SqlUtil.texto(d.getNombre().trim()),
                     SqlUtil.texto(d.getApellido().trim()),
                     SqlUtil.texto(d.getTag().trim()),
                     SqlUtil.texto(d.getCorreo().trim()),
                     SqlUtil.texto(hash),
-                    SqlUtil.texto(d.getDni().trim()));
+                    SqlUtil.texto(d.getDni().trim()),
+                    SqlUtil.texto(d.getTelefono().trim()),
+                    SqlUtil.fecha(nacimiento));
             usuarioDao.insertarSP(columnas, valores);
         }
     }
@@ -154,14 +161,46 @@ public class ImplementacionUsuarioService implements IUsuarioService {
             throw new IllegalArgumentException("Los datos de registro son obligatorios");
         }
         if (vacio(d.getNombre()) || vacio(d.getApellido()) || vacio(d.getTag())
-                || vacio(d.getCorreo()) || vacio(d.getUpassword()) || vacio(d.getDni())) {
-            throw new IllegalArgumentException("Nombre, apellido, tag, correo, contraseña y DNI son obligatorios");
+                || vacio(d.getCorreo()) || vacio(d.getUpassword()) || vacio(d.getDni())
+                || vacio(d.getTelefono()) || vacio(d.getFechaNacimiento())) {
+            throw new IllegalArgumentException(
+                    "Nombre, apellido, tag, correo, contraseña, DNI, teléfono y fecha de nacimiento son obligatorios");
         }
+        // DNI: exactamente 8 caracteres y todos dígitos (\\d = dígito)
+        if (!d.getDni().trim().matches("\\d{8}")) {
+            throw new IllegalArgumentException("El DNI debe tener exactamente 8 números");
+        }
+        // Teléfono: solo dígitos, entre 8 y 15
+        if (!d.getTelefono().trim().matches("\\d{8,15}")) {
+            throw new IllegalArgumentException("El teléfono debe tener solo números (entre 8 y 15 dígitos)");
+        }
+        validarEdad(d.getFechaNacimiento().trim());
         if (!d.getCorreo().trim().matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")) {
             throw new IllegalArgumentException("El correo no tiene un formato válido");
         }
         if (d.getUpassword().length() < 6) {
             throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres");
+        }
+    }
+
+    /** La fecha debe existir, no ser futura y corresponder a una persona de 18 a 120 años. */
+    private void validarEdad(String texto) {
+        LocalDate nacimiento;
+        try {
+            nacimiento = LocalDate.parse(texto); // formato ISO: AAAA-MM-DD
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("La fecha de nacimiento no tiene un formato válido (AAAA-MM-DD)");
+        }
+        LocalDate hoy = LocalDate.now();
+        if (nacimiento.isAfter(hoy)) {
+            throw new IllegalArgumentException("La fecha de nacimiento no puede ser futura");
+        }
+        int edad = Period.between(nacimiento, hoy).getYears(); // años cumplidos
+        if (edad < 18) {
+            throw new IllegalArgumentException("Tenés que tener al menos 18 años para registrarte");
+        }
+        if (edad > 120) {
+            throw new IllegalArgumentException("La fecha de nacimiento no es válida");
         }
     }
 

@@ -10,6 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const correo = document.getElementById("correo").value;
             const upassword = document.getElementById("contrasena").value;
 
+            // Si había otra sesión abierta (ej. un cliente), se cierra antes de entrar con la nueva cuenta.
+            const tokenViejo = localStorage.getItem("token");
+            if (tokenViejo) {
+                fetch("http://localhost:8086/api/usuarios/logout", {
+                    method: "POST",
+                    headers: { "Authorization": "Bearer " + tokenViejo }
+                }).catch(() => { /* sin conexión: no importa */ });
+            }
+            ["token", "usuario", "roles"].forEach(k => localStorage.removeItem(k));
+
             const datosLogin = {
                 correo: correo,
                 upassword: upassword
@@ -36,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     mensajeRespuesta.textContent = datos.mensaje;
                     mensajeRespuesta.style.color = "#2e7d32"; // Verde éxito
                     setTimeout(() => {
-                        window.location.href = "index.html"; // Cambia por tu vista principal si difiere
+                        window.location.href = "principal.html"; // Cambia por tu vista principal si difiere
                     }, 1500);
                 } else {
                     mensajeRespuesta.textContent = datos.error || "No se pudo iniciar sesión.";

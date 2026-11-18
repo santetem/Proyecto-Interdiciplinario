@@ -8,6 +8,8 @@ public class RegistroUsuarioDTO {
     private String correo;
     private String upassword;
     private String dni;
+    private String telefono;         // solo dígitos (se valida en el service)
+    private String fechaNacimiento;  // texto "AAAA-MM-DD", como lo manda el <input type="date">
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
@@ -21,4 +23,8 @@ public class RegistroUsuarioDTO {
     public void setUpassword(String upassword) { this.upassword = upassword; }
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public String getFechaNacimiento() { return fechaNacimiento; }
+    public void setFechaNacimiento(String fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
 }

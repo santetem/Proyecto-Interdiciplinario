@@ -16,7 +16,7 @@ public class Captacion {
     private Integer idCaptacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_operador", nullable = false)
+    @JoinColumn(name = "id_operador", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Usuario operador;
 

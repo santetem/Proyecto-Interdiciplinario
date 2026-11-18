@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captá tu Inmueble | REMAX</title>
+    <!-- base.css es para el diseño general y captacion.css para el formulario y las casillas -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="captacion.css">
+</head>
+<body>
+
+    <!-- barra de arriba, igual en todas las vistas -->
+    <header class="navbar">
+        <a href="principal.html" class="logo">RE/MAX <span>Internacional</span></a>
+        <nav class="nav-links">
+            <a href="inmuebles.html">Inmuebles</a>
+            <a href="captacion.html" class="activo">Captá tu inmueble</a>
+            <a href="franquicias.html">Franquicias</a>
+            <a href="login.html" class="btn-login-nav">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <!-- titulo principal de la pantalla -->
+    <section class="cabecera-vista">
+        <h1>Vendé o alquilá tu propiedad</h1>
+        <p>Completá los datos de tu inmueble. Un operador de la sucursal más cercana te contactará para tasarlo y publicarlo.</p>
+    </section>
+
+    <main class="contenedor">
+        <!-- formulario dividido en varios paneles; captacion.js lee todos estos id juntos al apretar Enviar -->
+        <form id="form-captacion" class="panel-form">
+            
+            <!-- bloque 1: tipo de operacion y precio -->
+            <section class="panel">
+                <h2>¿Qué querés hacer?</h2>
+                <div class="fila">
+                    <div>
+                        <label for="operacion">Operación</label>
+                        <select id="operacion" required>
+                            <option value="">Elegí una opción</option>
+                            <option value="Venta">Venta</option>
+                            <option value="Alquiler">Alquiler</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="valor">Valor pretendido (USD)</label>
+                        <input type="number" id="valor" min="0" placeholder="Opcional: se tasa luego">
+                    </div>
+                </div>
+            </section>
+
+            <!-- bloque 2: datos fisicos y ubicacion de la propiedad -->
+            <section class="panel">
+                <h2>Datos del inmueble</h2>
+                <div class="fila">
+                    <div>
+                        <label for="tipo">Tipo de inmueble</label>
+                        <select id="tipo" required>
+                            <option value="">Elegí una opción</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Departamento">Departamento</option>
+                            <option value="PH">PH</option>
+                            <option value="Terreno">Terreno</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" required placeholder="Calle y número">
+                    </div>
+                    <div>
+                        <label for="localidad">Localidad</label>
+                        <input type="text" id="localidad" required>
+                    </div>
+                    <div>
+                        <label for="sup-cubierta">Superficie cubierta (m²)</label>
+                        <input type="number" id="sup-cubierta" min="0" step="0.01">
+                    </div>
+                    <div>
+                        <label for="sup-total">Superficie total (m²)</label>
+                        <input type="number" id="sup-total" min="0" step="0.01">
+                    </div>
+                    <div>
+                        <label for="habitaciones">Habitaciones</label>
+                        <input type="number" id="habitaciones" min="0" value="0">
+                    </div>
+                    <div>
+                        <label for="banos">Baños</label>
+                        <input type="number" id="banos" min="0" value="0">
+                    </div>
+                    <div>
+                        <label for="cocheras">Cocheras</label>
+                        <input type="number" id="cocheras" min="0" value="0">
+                    </div>
+                </div>
+
+                <label for="antiguedad">Antigüedad y estado</label>
+                <input type="text" id="antiguedad" placeholder="Ej: 10 años, buen estado">
+            </section>
+
+            <!-- bloque 3: casillas para marcar comodidades extra -->
+            <section class="panel">
+                <h2>Características</h2>
+                <!-- captacion.js busca todos los inputs tildados adentro de este id -->
+                <div id="caracteristicas" class="checks">
+                    <label><input type="checkbox" value="Balcón"> Balcón</label>
+                    <label><input type="checkbox" value="Jardín"> Jardín</label>
+                    <label><input type="checkbox" value="Pileta"> Pileta</label>
+                    <label><input type="checkbox" value="Parrilla"> Parrilla</label>
+                    <label><input type="checkbox" value="Ascensor"> Ascensor</label>
+                    <label><input type="checkbox" value="Terraza"> Terraza</label>
+                    <label><input type="checkbox" value="Amoblado"> Amoblado</label>
+                    <label><input type="checkbox" value="Seguridad 24 hs"> Seguridad 24 hs</label>
+                </div>
+
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" placeholder="Algo más que el operador deba saber"></textarea>
+            </section>
+
+            <!-- bloque 4: seleccion de fotos y videos -->
+            <section class="panel">
+                <h2>Fotos del inmueble</h2>
+                <!-- accept: solo imagenes JPG, PNG, WEBP o GIF. multiple: se pueden elegir varias a la vez -->
+                <input type="file" id="multimedia" accept="image/jpeg,image/png,image/webp,image/gif" multiple>
+                <small class="nota">Hasta 5 fotos de 5 MB cada una (JPG, PNG, WEBP o GIF). La primera es la foto principal.</small>
+                <!-- lista vacia donde captacion.js muestra los nombres y el peso de los archivos elegidos -->
+                <ul id="lista-archivos" class="archivos"></ul>
+            </section>
+
+            <button type="submit" class="btn">Enviar solicitud de captación</button>
+            
+            <!-- cartel donde el js avisa si se envio bien o si tiro error -->
+            <p id="mensaje" class="mensaje"></p>
+        </form>
+
+        <!-- panel de abajo donde el js dibuja la tabla con las solicitudes que ya mando este cliente -->
+        <section class="panel">
+            <h2>Mis captaciones</h2>
+            <div id="mis-captaciones">
+                <p class="nota">Iniciá sesión para ver el estado de tus solicitudes.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-legal">RE/MAX Internacional · Proyecto escolar de análisis de sistemas</footer>
+
+    <!-- primero comun.js para la sesion y despues captacion.js para mandar el formulario -->
+    <script src="comun.js"></script>
+    <script src="captacion.js"></script>
+</body>
+</html>

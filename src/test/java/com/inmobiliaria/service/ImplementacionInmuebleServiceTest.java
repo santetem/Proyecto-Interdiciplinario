@@ -9,13 +9,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import com.inmobiliaria.dao.CaptacionRepository;
+import com.inmobiliaria.dao.MultimediaRepository;
+import com.inmobiliaria.dao.OperacionRepository;
 import com.inmobiliaria.dao.InmuebleRepository;
 import com.inmobiliaria.dao.UsuarioRepository;
 import com.inmobiliaria.dto.InmuebleDTO;
+import com.inmobiliaria.exception.ConflictoException;
 import com.inmobiliaria.exception.RecursoNoEncontradoException;
 import com.inmobiliaria.factory.IDaoFactory;
 import com.inmobiliaria.model.Captacion;
 import com.inmobiliaria.model.Inmueble;
+import com.inmobiliaria.model.Multimedia;
+import com.inmobiliaria.model.Oferta;
+import com.inmobiliaria.model.Operacion;
 import com.inmobiliaria.model.Usuario;
 
 /** Prueba la lógica REAL del Service; los DAOs se simulan a través de la Factory. */
@@ -24,6 +30,9 @@ class ImplementacionInmuebleServiceTest {
     private InmuebleRepository inmuebleDao;
     private UsuarioRepository usuarioDao;
     private CaptacionRepository captacionDao;
+    private MultimediaRepository multimediaDao;
+    private OperacionRepository operacionDao;
+    private AlmacenImagenes almacen;
     private ImplementacionInmuebleService service;
 
     @BeforeEach
@@ -32,10 +41,15 @@ class ImplementacionInmuebleServiceTest {
         inmuebleDao = mock(InmuebleRepository.class);
         usuarioDao = mock(UsuarioRepository.class);
         captacionDao = mock(CaptacionRepository.class);
+        multimediaDao = mock(MultimediaRepository.class);
+        operacionDao = mock(OperacionRepository.class);
+        almacen = mock(AlmacenImagenes.class);
         when(factory.getInmuebleDao()).thenReturn(inmuebleDao);
         when(factory.getUsuarioDao()).thenReturn(usuarioDao);
         when(factory.getCaptacionDao()).thenReturn(captacionDao);
-        service = new ImplementacionInmuebleService(factory);
+        when(factory.getMultimediaDao()).thenReturn(multimediaDao);
+        when(factory.getOperacionDao()).thenReturn(operacionDao);
+        service = new ImplementacionInmuebleService(factory, almacen);
     }
 
     private InmuebleDTO dtoValido() {
@@ -71,6 +85,17 @@ class ImplementacionInmuebleServiceTest {
     private void propietarioYCaptacionExisten() {
         when(usuarioDao.buscarPorIdSP(1)).thenReturn(new Usuario());
         when(captacionDao.buscarPorIdSP(2)).thenReturn(new Captacion());
+    }
+
+    @Test
+    void listarTodo_incluyeLasImagenesDelInmueble() {
+        Inmueble i = inmuebleExistente(1);
+        when(inmuebleDao.listarTodosSP()).thenReturn(List.of(i));
+        when(multimediaDao.listarTodosSP()).thenReturn(List.of(new Multimedia(i, "imagen", "/uploads/a.jpg")));
+
+        List<InmuebleDTO> lista = service.listarTodo();
+
+        assertEquals(List.of("/uploads/a.jpg"), lista.get(0).getImagenes());
     }
 
     @Test
@@ -195,16 +220,36 @@ class ImplementacionInmuebleServiceTest {
     }
 
     @Test
-    void eliminar_existente_llamaAlDao() {
-        when(inmuebleDao.buscarPorIdSP(8)).thenReturn(inmuebleExistente(8));
+    void eliminar_existente_borraConElSpCompletoYLasFotosDelDisco() {
+        Inmueble i = inmuebleExistente(8);
+        when(inmuebleDao.buscarPorIdSP(8)).thenReturn(i);
+        when(multimediaDao.listarTodosSP()).thenReturn(List.of(new Multimedia(i, "imagen", "/uploads/a.jpg")));
+
         service.eliminar(8);
-        verify(inmuebleDao).eliminarPorIdSP(8);
+
+        verify(inmuebleDao).eliminarCompletoSP(8);
+        verify(almacen).eliminar("/uploads/a.jpg");
+    }
+
+    @Test
+    void eliminar_conOperaciones_lanzaConflictoYNoElimina() {
+        Inmueble i = inmuebleExistente(8);
+        when(inmuebleDao.buscarPorIdSP(8)).thenReturn(i);
+        Oferta oferta = new Oferta();
+        oferta.setInmueble(i);
+        Operacion operacion = new Operacion();
+        operacion.setOferta(oferta);
+        when(operacionDao.listarTodosSP()).thenReturn(List.of(operacion));
+
+        assertThrows(ConflictoException.class, () -> service.eliminar(8));
+        verify(inmuebleDao, never()).eliminarCompletoSP(anyInt());
+        verify(almacen, never()).eliminar(anyString());
     }
 
     @Test
     void eliminar_noExiste_lanzaNoEncontradoYNoElimina() {
         when(inmuebleDao.buscarPorIdSP(8)).thenReturn(null);
         assertThrows(RecursoNoEncontradoException.class, () -> service.eliminar(8));
-        verify(inmuebleDao, never()).eliminarPorIdSP(anyInt());
+        verify(inmuebleDao, never()).eliminarCompletoSP(anyInt());
     }
 }

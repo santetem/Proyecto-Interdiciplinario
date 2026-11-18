@@ -1,0 +1,171 @@
+.filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0 16px;
+    align-items: end;
+}
+
+.filtros .btn {
+    margin-bottom: 14px;
+}
+
+.contador {
+    color: #555;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.grilla-inmuebles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 24px;
+}
+
+.tarjeta-inmueble {
+    background: #fff;
+    border: 1px solid #002244;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.foto {
+    height: 150px;
+    background: linear-gradient(135deg, #002244, #0a4a8a);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #dc143c;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.cuerpo {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.precio {
+    font-size: 22px;
+    font-weight: bold;
+    color: #002244;
+}
+
+.direccion {
+    font-size: 14px;
+    color: #666;
+}
+
+.datos {
+    display: flex;
+    gap: 14px;
+    font-size: 13px;
+    color: #444;
+    flex-wrap: wrap;
+}
+
+.cuerpo .btn {
+    margin-top: auto;
+    text-align: center;
+}
+
+.vacio {
+    grid-column: 1 / -1;
+    background: #fff;
+    border: 1px dashed #aab;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    color: #555;
+}
+
+.detalle {
+    border: 0;
+    border-radius: 8px;
+    padding: 25px;
+    width: min(520px, 92vw);
+    margin: auto;
+}
+
+.detalle::backdrop {
+    background: rgba(0, 21, 43, .6);
+}
+
+.detalle h2 {
+    color: #002244;
+    margin-bottom: 8px;
+}
+
+.detalle ul {
+    margin: 10px 0 18px 18px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.detalle h3 {
+    margin: 14px 0 10px;
+    color: #002244;
+}
+
+.detalle .btn {
+    margin-right: 8px;
+}
+
+/* ---- Fotos de los inmuebles ---- */
+/* la imagen se estira sobre toda la caja .foto (position absolute) y se recorta sin deformarse (object-fit: cover) */
+.foto img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* la etiqueta Venta/Alquiler queda por encima de la foto */
+.etiqueta {
+    z-index: 1;
+}
+
+/* tira de fotos del detalle: se desplaza hacia los costados si no entran */
+.galeria {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin-bottom: 14px;
+}
+
+.galeria img {
+    height: 150px;
+    flex: none;          /* no se achican para entrar: mantienen su tamaño */
+    border-radius: 6px;
+}
+
+/* ---- Boton Eliminar (solo lo ve el administrador) ---- */
+.btn-peligro {
+    background: #7f1d1d;
+}
+
+.btn-peligro:hover {
+    background: #450a0a;
+}
+
+/* el boton "Ver detalle" ya empuja los botones hacia abajo (margin-top: auto); este queda pegado debajo */
+.cuerpo .btn-peligro {
+    margin-top: 8px;
+}

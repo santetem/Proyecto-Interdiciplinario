@@ -1,0 +1,128 @@
+.subtitulo {
+    color: #002244;
+    font-size: 15px;
+    margin: 18px 0 10px;
+}
+
+.subtitulo:first-of-type {
+    margin-top: 0;
+}
+
+.nota {
+    color: #666;
+    font-size: 14px;
+}
+
+.solicitud {
+    border: 1px solid #d5dce6;
+    border-left: 4px solid #dc143c;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: #fafbfd;
+}
+
+.solicitud-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.solicitud-cabecera strong {
+    color: #002244;
+}
+
+.solicitud-cabecera small {
+    display: block;
+    color: #666;
+    margin-top: 2px;
+}
+
+.detalle {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+}
+
+.solicitud textarea {
+    min-height: 56px;
+    margin-bottom: 10px;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-rechazar {
+    background: #6b7280;
+}
+
+.btn-rechazar:hover {
+    background: #374151;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tabla th,
+.tabla td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+}
+
+.estado {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #e2e8f0;
+    white-space: nowrap;
+}
+
+.estado.pendiente {
+    background: #fff3cd;
+    color: #8a6d00;
+}
+
+.estado.aprobada,
+.estado.activa {
+    background: #c8e6c9;
+    color: #1b5e20;
+}
+
+.estado.rechazada {
+    background: #ffcdd2;
+    color: #b71c1c;
+}
+
+/* miniaturas de las fotos de una captacion (arriba de las observaciones) */
+.miniaturas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.miniaturas img {
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Inmuebles | REMAX</title>
+    <!-- base.css tiene el diseño general y inmuebles.css la grilla de tarjetas y el modal -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="inmuebles.css">
+</head>
+<body>
+
+    <!-- barra de arriba, igual en todas las vistas -->
+    <header class="navbar">
+        <a href="principal.html" class="logo">RE/MAX <span>Internacional</span></a>
+        <nav class="nav-links">
+            <a href="inmuebles.html" class="activo">Inmuebles</a>
+            <a href="captacion.html">Captá tu inmueble</a>
+            <a href="franquicias.html">Franquicias</a>
+            <a href="login.html" class="btn-login-nav">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <!-- titulo principal de la seccion -->
+    <section class="cabecera-vista">
+        <h1>Explorar inmuebles</h1>
+        <p>Propiedades en venta y alquiler. Filtrá por zona, tipo y características.</p>
+    </section>
+
+    <main class="contenedor">
+        <!-- caja de filtros: cada vez que cambio algo aca adentro, el js actualiza las tarjetas al toque -->
+        <form id="filtros" class="panel filtros">
+            <div>
+                <label for="f-localidad">Localidad</label>
+                <input type="text" id="f-localidad" placeholder="Ej: Palermo">
+            </div>
+
+            <div>
+                <label for="f-tipo">Tipo</label>
+                <select id="f-tipo">
+                    <option value="">Todos</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Departamento">Departamento</option>
+                    <option value="PH">PH</option>
+                    <option value="Terreno">Terreno</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="f-operacion">Operación</label>
+                <select id="f-operacion">
+                    <option value="">Venta y alquiler</option>
+                    <option value="Venta">Venta</option>
+                    <option value="Alquiler">Alquiler</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="f-habitaciones">Habitaciones (mín.)</label>
+                <input type="number" id="f-habitaciones" min="0" placeholder="0">
+            </div>
+
+            <div>
+                <label for="f-precio">Precio máximo (USD)</label>
+                <input type="number" id="f-precio" min="0" placeholder="Sin límite">
+            </div>
+
+            <!-- boton para vaciar todos los filtros y volver a mostrar todas las propiedades -->
+            <button type="button" id="btn-limpiar" class="btn btn-azul">Limpiar filtros</button>
+        </form>
+
+        <!-- aca el js escribe cuantas propiedades encontro (ej: "5 propiedades encontradas") -->
+        <p id="contador" class="contador"></p>
+        <!-- aviso: aca inmuebles.js escribe el resultado de eliminar (ok o error) -->
+        <p id="aviso" class="mensaje" aria-live="polite"></p>
+
+        <!-- grilla vacia donde el js va dibujando las tarjetas de las casas/deptos -->
+        <section id="listado" class="grilla-inmuebles"></section>
+    </main>
+
+    <!-- ventana emergente (modal) que arranca oculta y se abre cuando toco "Ver detalle" en una propiedad -->
+    <dialog id="detalle" class="detalle">
+        <!-- aca el js mete el titulo, direccion y caracteristicas de la propiedad elegida -->
+        <div id="detalle-contenido"></div>
+
+        <!-- formulario adentro del modal para que un usuario logueado mande una oferta -->
+        <form id="form-oferta">
+            <h3>Hacer una oferta</h3>
+            
+            <label for="monto">Monto ofertado (USD)</label>
+            <input type="number" id="monto" min="1" required>
+            
+            <button type="submit" class="btn">Enviar oferta</button>
+            <button type="button" id="cerrar" class="btn btn-azul">Cerrar</button>
+            
+            <!-- cartel para avisar si la oferta se envio bien o si falto iniciar sesion -->
+            <p id="msg-oferta" class="mensaje"></p>
+        </form>
+    </dialog>
+
+    <footer class="footer-legal">RE/MAX Internacional · Proyecto escolar de análisis de sistemas</footer>
+
+    <!-- primero comun.js (sesion y llamadas a la api) y despues inmuebles.js (logica de esta pantalla) -->
+    <script src="comun.js"></script>
+    <script src="inmuebles.js"></script>
+</body>
+</html>

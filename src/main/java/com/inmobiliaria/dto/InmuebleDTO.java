@@ -1,6 +1,8 @@
 package com.inmobiliaria.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import com.inmobiliaria.model.Inmueble;
 
 /** DTO de Inmueble: lo que viaja por la API (ids en lugar de entidades anidadas). */
@@ -17,6 +19,7 @@ public class InmuebleDTO {
     private Integer cantidadCocheras;
     private String antiguedadEstado;
     private String localidad;
+    private List<String> imagenes = new ArrayList<>(); // URLs de las fotos (tabla Multimedia)
 
     public InmuebleDTO() { }
 
@@ -59,6 +62,8 @@ public class InmuebleDTO {
     public void setCantidadCocheras(Integer cantidadCocheras) { this.cantidadCocheras = cantidadCocheras; }
     public String getAntiguedadEstado() { return antiguedadEstado; }
     public void setAntiguedadEstado(String antiguedadEstado) { this.antiguedadEstado = antiguedadEstado; }
+    public List<String> getImagenes() { return imagenes; }
+    public void setImagenes(List<String> imagenes) { this.imagenes = imagenes; }
     public String getLocalidad() { return localidad; }
     public void setLocalidad(String localidad) { this.localidad = localidad; }
 }

@@ -2,15 +2,22 @@ package com.inmobiliaria.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Service;
 import com.inmobiliaria.dao.CaptacionRepository;
 import com.inmobiliaria.dao.InmuebleRepository;
+import com.inmobiliaria.dao.MultimediaRepository;
+import com.inmobiliaria.dao.OperacionRepository;
 import com.inmobiliaria.dao.UsuarioRepository;
 import com.inmobiliaria.dto.InmuebleDTO;
+import com.inmobiliaria.exception.ConflictoException;
 import com.inmobiliaria.exception.RecursoNoEncontradoException;
 import com.inmobiliaria.factory.IDaoFactory;
 import com.inmobiliaria.model.Inmueble;
+import com.inmobiliaria.model.Multimedia;
+import com.inmobiliaria.model.Operacion;
 import com.inmobiliaria.util.SqlUtil;
 
 /**
@@ -24,25 +31,49 @@ public class ImplementacionInmuebleService implements IInmuebleService {
     private final InmuebleRepository inmuebleDao;
     private final UsuarioRepository usuarioDao;
     private final CaptacionRepository captacionDao;
+    private final MultimediaRepository multimediaDao;
+    private final OperacionRepository operacionDao;
+    private final AlmacenImagenes almacenImagenes;
 
-    public ImplementacionInmuebleService(IDaoFactory factory) {
+    public ImplementacionInmuebleService(IDaoFactory factory, AlmacenImagenes almacenImagenes) {
         this.inmuebleDao = factory.getInmuebleDao();
         this.usuarioDao = factory.getUsuarioDao();
         this.captacionDao = factory.getCaptacionDao();
+        this.multimediaDao = factory.getMultimediaDao();
+        this.operacionDao = factory.getOperacionDao();
+        this.almacenImagenes = almacenImagenes;
     }
 
     @Override
     public List<InmuebleDTO> listarTodo() {
         List<InmuebleDTO> resultado = new ArrayList<>();
+        Map<Integer, List<String>> imagenes = imagenesPorInmueble(); // una sola consulta para todas las fotos
         for (Inmueble i : inmuebleDao.listarTodosSP()) {
-            resultado.add(InmuebleDTO.desde(i));
+            InmuebleDTO dto = InmuebleDTO.desde(i);
+            dto.setImagenes(imagenes.getOrDefault(i.getIdInmueble(), new ArrayList<>()));
+            resultado.add(dto);
         }
         return resultado;
     }
 
+    /** Agrupa las URLs de la tabla Multimedia por inmueble: { idInmueble -> [url1, url2, ...] }. */
+    private Map<Integer, List<String>> imagenesPorInmueble() {
+        Map<Integer, List<String>> mapa = new HashMap<>();
+        for (Multimedia m : multimediaDao.listarTodosSP()) {
+            if (m.getInmueble() == null || !"imagen".equalsIgnoreCase(m.getTipo())) {
+                continue; // solo imágenes (los videos/360 se podrían sumar más adelante)
+            }
+            mapa.computeIfAbsent(m.getInmueble().getIdInmueble(), k -> new ArrayList<>()).add(m.getUrl());
+        }
+        return mapa;
+    }
+
     @Override
     public InmuebleDTO buscarPorId(int id) {
-        return InmuebleDTO.desde(obtenerExistente(id));
+        Inmueble i = obtenerExistente(id);
+        InmuebleDTO dto = InmuebleDTO.desde(i);
+        dto.setImagenes(imagenesPorInmueble().getOrDefault(i.getIdInmueble(), new ArrayList<>()));
+        return dto;
     }
 
     @Override
@@ -138,7 +169,32 @@ public class ImplementacionInmuebleService implements IInmuebleService {
     @Override
     public void eliminar(int id) {
         obtenerExistente(id);
-        inmuebleDao.eliminarPorIdSP(id);
+
+        // 1) Si el inmueble ya tiene una venta o un alquiler (operación), NO se puede eliminar:
+        //    se perdería el historial comercial. Se avisa con un mensaje claro (409).
+        for (Operacion op : operacionDao.listarTodosSP()) {
+            if (op.getOferta() != null && op.getOferta().getInmueble() != null
+                    && op.getOferta().getInmueble().getIdInmueble() == id) {
+                throw new ConflictoException(
+                        "No se puede eliminar: el inmueble tiene operaciones (venta o alquiler) registradas");
+            }
+        }
+
+        // 2) Me guardo las URLs de las fotos ANTES de borrar (después ya no se pueden consultar)
+        List<String> urlsFotos = new ArrayList<>();
+        for (Multimedia m : multimediaDao.listarTodosSP()) {
+            if (m.getInmueble() != null && m.getInmueble().getIdInmueble() == id) {
+                urlsFotos.add(m.getUrl());
+            }
+        }
+
+        // 3) Borrado en la base: el stored procedure elimina el inmueble y sus dependencias en una transacción
+        inmuebleDao.eliminarCompletoSP(id);
+
+        // 4) Recién cuando la base confirmó, se borran los archivos de las fotos del disco
+        for (String url : urlsFotos) {
+            almacenImagenes.eliminar(url);
+        }
     }
 
     // ---------- métodos auxiliares ----------

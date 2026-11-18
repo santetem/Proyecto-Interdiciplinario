@@ -1,0 +1,82 @@
+.pasos {
+    list-style: none;
+    counter-reset: paso;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.pasos li {
+    counter-increment: paso;
+    border-left: 3px solid #002244;
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pasos li::before {
+    content: "Paso " counter(paso);
+    font-size: 12px;
+    color: #dc143c;
+    font-weight: bold;
+}
+
+.pasos strong {
+    color: #002244;
+}
+
+.pasos span {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.acepto {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+.acepto input {
+    width: auto;
+    margin: 3px 0 0;
+}
+
+.nota {
+    color: #666;
+    font-size: 14px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tabla th,
+.tabla td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.estado {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #e2e8f0;
+}
+
+.estado.aprobada {
+    background: #c8e6c9;
+    color: #1b5e20;
+}
+
+.estado.rechazada {
+    background: #ffcdd2;
+    color: #b71c1c;
+}

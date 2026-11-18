@@ -3,6 +3,7 @@ package com.inmobiliaria.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
+import java.time.LocalDate;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,6 +53,8 @@ class ImplementacionUsuarioServiceTest {
         d.setCorreo("ana@mail.com");
         d.setUpassword("secreto1");
         d.setDni("30111222");
+        d.setTelefono("1155667788");
+        d.setFechaNacimiento("1990-05-20");
         return d;
     }
 
@@ -72,7 +75,7 @@ class ImplementacionUsuarioServiceTest {
 
         ArgumentCaptor<String> pass = ArgumentCaptor.forClass(String.class);
         verify(usuarioDao).altaUsuarioConRol(eq("Ana"), eq("Pérez"), eq("anap"), eq("ana@mail.com"),
-                pass.capture(), eq("30111222"), eq(1));
+                pass.capture(), eq("30111222"), eq("1155667788"), eq(LocalDate.of(1990, 5, 20)), eq(1));
         assertNotEquals("secreto1", pass.getValue());
         assertTrue(pass.getValue().startsWith("$2"));
         assertTrue(new BCryptPasswordEncoder().matches("secreto1", pass.getValue()));
@@ -85,8 +88,8 @@ class ImplementacionUsuarioServiceTest {
 
         service.registrar(registroValido());
 
-        verify(usuarioDao).insertarSP(eq("nombre, apellido, tag, correo, upassword, dni"), contains("'ana@mail.com'"));
-        verify(usuarioDao, never()).altaUsuarioConRol(any(), any(), any(), any(), any(), any(), anyInt());
+        verify(usuarioDao).insertarSP(eq("nombre, apellido, tag, correo, upassword, dni, telefono, fecha_nacimiento"), contains("'ana@mail.com'"));
+        verify(usuarioDao, never()).altaUsuarioConRol(any(), any(), any(), any(), any(), any(), any(), any(), anyInt());
     }
 
     @Test
@@ -119,6 +122,55 @@ class ImplementacionUsuarioServiceTest {
         service.registrar(d);
 
         verify(usuarioDao).insertarSP(anyString(), contains("'Ana''); DROP TABLE usuarios;--'"));
+    }
+
+    @Test
+    void registrar_dniConLetras_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setDni("3011122A");
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
+    }
+
+    @Test
+    void registrar_dniCon7Digitos_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setDni("3011122");
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
+    }
+
+    @Test
+    void registrar_dniCon9Digitos_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setDni("301112222");
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
+    }
+
+    @Test
+    void registrar_telefonoConLetras_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setTelefono("11556abc78");
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
+    }
+
+    @Test
+    void registrar_menorDe18_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setFechaNacimiento(LocalDate.now().minusYears(17).toString());
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
+    }
+
+    @Test
+    void registrar_fechaFutura_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setFechaNacimiento(LocalDate.now().plusDays(1).toString());
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
+    }
+
+    @Test
+    void registrar_fechaConFormatoInvalido_lanzaIllegalArgument() {
+        RegistroUsuarioDTO d = registroValido();
+        d.setFechaNacimiento("20/05/1990");
+        assertThrows(IllegalArgumentException.class, () -> service.registrar(d));
     }
 
     @Test
