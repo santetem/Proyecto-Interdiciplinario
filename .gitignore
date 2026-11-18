@@ -1,1 +1,18 @@
 -e "target/\n.settings/\n.classpath\n.project" 
+
+target/
+
+uploads/
+
+.settings/
+
+.classpath
+
+.project
+
+.factorypath
+
+.springBeans
+
+*.log
+
