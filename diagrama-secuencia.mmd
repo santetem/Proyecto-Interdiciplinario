@@ -1,0 +1,143 @@
+sequenceDiagram
+    autonumber
+    actor Cliente
+    actor Operador as Operador (Agente/Gerente/Admin)
+    participant FE as Frontend (HTML/JS)
+    participant AI as AuthInterceptor
+    participant SS as SesionService
+    participant UC as UsuarioController
+    participant US as UsuarioService
+    participant CC as CaptacionController
+    participant CS as CaptacionService
+    participant OC as OfertaController
+    participant OS as OfertaService
+    participant VC as VentaController
+    participant VS as VentaService
+    participant DAO as DAO (via IDaoFactory)
+    participant DB as MySQL (Stored Procedures)
+
+    %% ================= 1. LOGIN =================
+    rect rgb(235, 245, 255)
+    Note over Cliente,DB: 1. Login
+    Cliente->>FE: Ingresa correo y contraseña
+    FE->>UC: POST /api/usuarios/login (LoginDTO)
+    UC->>US: login(dto)
+    US->>DAO: usuarioDao.listarTodosSP()
+    DAO->>DB: CALL sp_General_Listar('usuarios')
+    DB-->>DAO: usuarios
+    DAO-->>US: List<Usuario>
+    US->>US: Busca por correo y compara con BCrypt
+    alt Credenciales incorrectas
+        US-->>UC: NoAutenticadoException
+        UC-->>FE: 401 "Correo o contraseña incorrectos"
+    else Credenciales válidas
+        US->>DAO: relacionRolesDao.listarTodosSP()
+        DAO->>DB: CALL sp_General_Listar('relacion_roles')
+        DB-->>DAO: roles del usuario
+        US->>SS: crear(idUsuario, correo, roles)
+        SS-->>US: token (UUID, vigencia 8 hs)
+        US-->>UC: LoginRespuestaDTO
+        UC-->>FE: 200 OK {token, usuario, roles}
+        FE->>FE: Guarda token (Authorization: Bearer)
+    end
+    end
+
+    %% ================= 2. CAPTACIÓN =================
+    rect rgb(240, 255, 240)
+    Note over Cliente,DB: 2. Cliente envía su inmueble para captación
+    Cliente->>FE: Completa formulario de captación
+    FE->>CC: POST /api/captaciones (Bearer token)
+    CC->>AI: preHandle() [@RequiereRol]
+    AI->>SS: obtener(token)
+    SS-->>AI: Sesion (o null si venció)
+    alt Sin sesión válida
+        AI-->>FE: 401 NoAutenticadoException
+    else Sesión válida
+        AI-->>CC: continúa (sesionActual)
+        CC->>CS: registrar(idUsuario, dto)
+        CS->>CS: Valida características e imágenes (máx. 5)
+        CS->>DAO: usuarioDao.buscarPorIdSP(idUsuario)
+        DAO->>DB: CALL sp_General_BuscarPorId
+        CS->>DAO: captacionDao.insertarSP(...) estado "Pendiente"
+        DAO->>DB: CALL sp_General_Insertar('captaciones')
+        CS-->>CC: ok
+        CC-->>FE: 201 "Solicitud enviada"
+    end
+    end
+
+    %% ================= 3. ACEPTAR CAPTACIÓN =================
+    rect rgb(255, 250, 235)
+    Note over Operador,DB: 3. Operador acepta la captación (publica el inmueble)
+    Operador->>FE: Acepta captación pendiente
+    FE->>CC: PATCH /api/captaciones/{id}/aceptar
+    CC->>AI: preHandle() [Admin/Gerente/Agente]
+    AI->>SS: obtener(token)
+    SS-->>AI: Sesion
+    AI->>AI: tieneAlgunRol(...)
+    alt Rol sin permiso
+        AI-->>FE: 403 AccesoDenegadoException
+    else Rol autorizado
+        CC->>CS: aceptar(id, idOperador, observaciones)
+        CS->>DAO: captacionDao.buscarPorIdSP(id)
+        DAO->>DB: CALL sp_General_BuscarPorId
+        CS->>CS: Verifica estado "Pendiente" y parsea dirección, tipo, superficies, imágenes
+        CS->>DAO: captacionDao.aceptarCaptacionSP(...)
+        DAO->>DB: CALL sp_AceptarCaptacion
+        Note right of DB: Transacción atómica:<br/>1. Captación → "Activa"<br/>2. INSERT inmueble<br/>3. INSERT publicación (agente)<br/>ROLLBACK si falla
+        DB-->>DAO: ok
+        CS->>DAO: inmuebleDao.listarTodosSP() (busca el inmueble creado)
+        CS->>DAO: multimediaDao.insertarSP() por cada imagen
+        DAO->>DB: CALL sp_General_Insertar('multimedia')
+        CS-->>CC: ok
+        CC-->>FE: 200 "Captación aceptada: el inmueble ya está publicado"
+    end
+    end
+
+    %% ================= 4. OFERTA =================
+    rect rgb(255, 240, 245)
+    Note over Cliente,DB: 4. Cliente realiza una oferta
+    Cliente->>FE: Ofrece un monto por un inmueble
+    FE->>OC: POST /api/ofertas (OfertaDTO)
+    OC->>AI: preHandle() [@RequiereRol]
+    AI->>SS: obtener(token)
+    SS-->>AI: Sesion
+    OC->>OS: registrar(idUsuario, dto)
+    OS->>DAO: usuarioDao.buscarPorIdSP(idUsuario)
+    OS->>DAO: inmuebleDao.buscarPorIdSP(idInmueble)
+    DAO->>DB: CALL sp_General_BuscarPorId
+    alt Es el propietario del inmueble
+        OS-->>OC: ConflictoException
+        OC-->>FE: 409 "No podés ofertar por tu propio inmueble"
+    else Oferta válida
+        OS->>DAO: ofertaDao.insertarSP(...) estado "Pendiente"
+        DAO->>DB: CALL sp_General_Insertar('ofertas')
+        OS-->>OC: ok
+        OC-->>FE: 201 "Oferta enviada correctamente"
+    end
+    end
+
+    %% ================= 5. CONCRETAR VENTA =================
+    rect rgb(245, 240, 255)
+    Note over Operador,DB: 5. Operador concreta la venta
+    Operador->>FE: Concreta venta sobre una oferta
+    FE->>VC: POST /ventas/concretar (ConcretarVentaDTO)
+    VC->>AI: preHandle() [Admin/Gerente/Agente]
+    AI->>SS: obtener(token)
+    SS-->>AI: Sesion
+    VC->>VS: concretarVenta(dto, idUsuarioSesion)
+    VS->>VS: Valida idOferta, monto final y % comisión (0-100)
+    VS->>DAO: usuarioDao.buscarPorIdSP(idComision)
+    VS->>DAO: ofertaDao.buscarPorIdSP(idOferta)
+    DAO->>DB: CALL sp_General_BuscarPorId
+    alt Oferta ya "Aceptada"
+        VS-->>VC: ConflictoException
+        VC-->>FE: 409 "La oferta ya fue aceptada anteriormente"
+    else Oferta disponible
+        VS->>DAO: ventaDao.concretarVentaSP(...)
+        DAO->>DB: CALL sp_ConcretarVenta
+        Note right of DB: Transacción atómica:<br/>1. Oferta → "Aceptada"<br/>2. INSERT operación (VENTA)<br/>3. INSERT venta "Finalizada"<br/>4. INSERT comisión (monto = final × %)<br/>ROLLBACK si falla
+        DB-->>DAO: ok
+        VS-->>VC: ok
+        VC-->>FE: 201 "Venta concretada correctamente"
+    end
+    end
