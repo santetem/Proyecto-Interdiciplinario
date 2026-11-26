@@ -1,0 +1,151 @@
+﻿ID,Epica,HU,Tipo,Tarea,Puntos,Prioridad,Fase_Gantt,Estado
+PB-001,E01 Base de datos,HU-01,Base de datos,Relevar entidades y atributos del dominio inmobiliario,3,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-002,E01 Base de datos,HU-01,Base de datos,"Definir claves primarias, foráneas y cardinalidades",3,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-003,E01 Base de datos,HU-01,Base de datos,Diseñar el DER y el modelo relacional,5,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-004,E01 Base de datos,HU-01,Base de datos,Normalizar tablas hasta 3FN,3,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-005,E01 Base de datos,HU-01,Base de datos,Crear script de tablas con PK y FK,5,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-006,E01 Base de datos,HU-01,Base de datos,"Configurar restricciones (UNIQUE, CHECK, NOT NULL) y relaciones",3,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-007,E01 Base de datos,HU-01,Base de datos,Cargar datos de prueba (script seed),2,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-008,E01 Base de datos,HU-01,Base de datos,Crear consultas SQL y vistas para listados y reportes,5,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-009,E01 Base de datos,HU-01,Base de datos,Desarrollar procedimientos almacenados,5,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-010,E01 Base de datos,HU-01,Base de datos,Desarrollar triggers de integridad y auditoría,5,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-011,E01 Base de datos,HU-01,Base de datos,"Crear usuarios, roles y permisos de la BD",3,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-012,E01 Base de datos,HU-01,Pruebas,"Probar integridad, consultas y rendimiento de la BD",3,Alta,Fases 4 y 5 (T34–T51),Por hacer
+PB-013,E02 Autenticación y roles,HU-01,Backend,Configurar proyecto Spring y conexión con la base de datos,3,Alta,Fase 6 (T55–T61),Por hacer
+PB-014,E02 Autenticación y roles,HU-01,Backend,"Definir arquitectura por capas (modelo, DAO, servicio, controlador)",3,Alta,Fase 6 (T55–T61),Por hacer
+PB-015,E02 Autenticación y roles,HU-02,Backend,Crear entidad y repositorio de usuario con contraseña cifrada,3,Alta,Fase 6 (T55–T61),Por hacer
+PB-016,E02 Autenticación y roles,HU-02,Backend,Implementar endpoint de registro de usuarios,3,Alta,Fase 6 (T55–T61),Por hacer
+PB-017,E02 Autenticación y roles,HU-02,Backend,Implementar endpoint de login y emisión de token,5,Alta,Fase 6 (T55–T61),Por hacer
+PB-018,E02 Autenticación y roles,HU-03,Backend,"Implementar autorización por roles (admin, gerente, agente, cliente)",5,Alta,Fase 6 (T55–T61),Por hacer
+PB-019,E02 Autenticación y roles,HU-02,Frontend,Maquetar y programar pantalla de inicio de sesión,3,Alta,Fase 6 (T55–T61),Por hacer
+PB-020,E02 Autenticación y roles,HU-02,Frontend,Maquetar y programar pantalla de registro con validaciones,3,Alta,Fase 6 (T55–T61),Por hacer
+PB-021,E02 Autenticación y roles,HU-03,Frontend,Ocultar menús y acciones según el rol del usuario,3,Alta,Fase 6 (T55–T61),Por hacer
+PB-022,E02 Autenticación y roles,HU-02,Pruebas,"Probar login, registro y permisos por rol",3,Alta,Fase 6 (T55–T61),Por hacer
+PB-023,E03 Usuarios y clientes,HU-04,Backend,Desarrollar CRUD de usuarios (servicio y controlador),5,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-024,E03 Usuarios y clientes,HU-04,Backend,Validar datos únicos y estados de usuario,2,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-025,E03 Usuarios y clientes,HU-05,Backend,Desarrollar CRUD de clientes,3,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-026,E03 Usuarios y clientes,HU-05,Backend,Implementar búsqueda y filtrado de clientes,2,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-027,E03 Usuarios y clientes,HU-04,Frontend,Pantalla de listado y alta/edición de usuarios,5,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-028,E03 Usuarios y clientes,HU-05,Frontend,Pantalla de listado y ficha de clientes,3,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-029,E03 Usuarios y clientes,HU-04,Frontend,Confirmaciones y mensajes de error en gestión de usuarios,2,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-030,E03 Usuarios y clientes,HU-04,Pruebas,"Probar alta, baja y modificación de usuarios",2,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-031,E03 Usuarios y clientes,HU-05,Pruebas,Probar registro y búsqueda de clientes,2,Alta,"Fases 6 y 7 (T62, T70)",Por hacer
+PB-032,E04 Captaciones,HU-06,Base de datos,Definir tabla de captaciones y estados,2,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-033,E04 Captaciones,HU-06,Backend,"Desarrollar modelo, DAO y servicio de captaciones",5,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-034,E04 Captaciones,HU-06,Backend,Endpoint de alta de captación con datos del propietario,3,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-035,E04 Captaciones,HU-06,Backend,Adjuntar documentación y fotos a la captación,3,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-036,E04 Captaciones,HU-07,Backend,Cambio de estado de captación y registro de historial,3,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-037,E04 Captaciones,HU-07,Backend,Listado de captaciones por agente y estado,2,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-038,E04 Captaciones,HU-06,Frontend,Formulario de captación de inmuebles,5,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-039,E04 Captaciones,HU-06,Frontend,Carga de fotos y documentos en el formulario,3,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-040,E04 Captaciones,HU-07,Frontend,Tablero de seguimiento de captaciones,3,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-041,E04 Captaciones,HU-06,Pruebas,Probar el alta de captaciones,2,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-042,E04 Captaciones,HU-07,Pruebas,Probar cambios de estado e historial,2,Alta,"Fases 6 y 7 (T62, T72)",Por hacer
+PB-043,E05 Inmuebles,HU-08,Backend,Desarrollar modelo y DAO de inmuebles y tipos de operación,3,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-044,E05 Inmuebles,HU-08,Backend,"Servicio y endpoints de alta, modificación y baja lógica",5,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-045,E05 Inmuebles,HU-09,Backend,"Endpoint de listado con filtros (zona, precio, tipo, ambientes)",5,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-046,E05 Inmuebles,HU-09,Backend,Endpoint de detalle de inmueble con imágenes,3,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-047,E05 Inmuebles,HU-08,Frontend,Formulario de alta y edición de inmuebles,5,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-048,E05 Inmuebles,HU-09,Frontend,Página principal con inmuebles destacados,3,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-049,E05 Inmuebles,HU-09,Frontend,Listado de inmuebles con filtros y paginación,5,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-050,E05 Inmuebles,HU-09,Frontend,Página de detalle con galería multimedia,3,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-051,E05 Inmuebles,HU-09,Frontend,Validaciones en JavaScript de filtros y formularios,2,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-052,E05 Inmuebles,HU-08,Pruebas,"Probar alta, edición y baja de inmuebles",2,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-053,E05 Inmuebles,HU-09,Pruebas,"Probar filtros, listado y detalle",3,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-054,E05 Inmuebles,HU-09,Frontend,Diseño responsive de listado y detalle,2,Alta,"Fases 6 y 7 (T62, T69, T71)",Por hacer
+PB-055,E06 Publicaciones,HU-10,Backend,"Modelo y servicio de publicaciones (estado, vigencia, destacado)",3,Media,Fase 6 (T63),Por hacer
+PB-056,E06 Publicaciones,HU-10,Backend,Endpoint para publicar un inmueble validando datos obligatorios,3,Media,Fase 6 (T63),Por hacer
+PB-057,E06 Publicaciones,HU-11,Backend,"Endpoint para pausar, reactivar y finalizar publicaciones",3,Media,Fase 6 (T63),Por hacer
+PB-058,E06 Publicaciones,HU-10,Frontend,Pantalla de gestión de publicaciones del agente,3,Media,Fase 6 (T63),Por hacer
+PB-059,E06 Publicaciones,HU-10,Frontend,Previsualización de la publicación antes de confirmar,2,Media,Fase 6 (T63),Por hacer
+PB-060,E06 Publicaciones,HU-11,Frontend,Acciones de pausar y finalizar con confirmación,2,Media,Fase 6 (T63),Por hacer
+PB-061,E06 Publicaciones,HU-10,Backend,Vincular publicaciones con contenido multimedia,3,Media,Fase 6 (T63),Por hacer
+PB-062,E06 Publicaciones,HU-10,Pruebas,Probar el flujo de publicación,3,Media,Fase 6 (T63),Por hacer
+PB-063,E06 Publicaciones,HU-11,Pruebas,Probar pausa y finalización de publicaciones,2,Media,Fase 6 (T63),Por hacer
+PB-064,E07 Tasaciones,HU-12,Base de datos,Definir tabla de tasaciones y valores de referencia,2,Media,Fase 6 (T63),Por hacer
+PB-065,E07 Tasaciones,HU-12,Backend,"Modelo, DAO y servicio de tasaciones",3,Media,Fase 6 (T63),Por hacer
+PB-066,E07 Tasaciones,HU-12,Backend,Endpoint de solicitud y registro de tasación,3,Media,Fase 6 (T63),Por hacer
+PB-067,E07 Tasaciones,HU-12,Backend,Asociar tasación al inmueble y actualizar precio sugerido,2,Media,Fase 6 (T63),Por hacer
+PB-068,E07 Tasaciones,HU-12,Frontend,Formulario de solicitud de tasación,3,Media,Fase 6 (T63),Por hacer
+PB-069,E07 Tasaciones,HU-12,Frontend,Pantalla de historial de tasaciones del inmueble,2,Media,Fase 6 (T63),Por hacer
+PB-070,E07 Tasaciones,HU-12,Pruebas,Probar el registro de tasaciones,2,Media,Fase 6 (T63),Por hacer
+PB-071,E07 Tasaciones,HU-12,Pruebas,Probar permisos de tasación por rol,2,Media,Fase 6 (T63),Por hacer
+PB-072,E08 Visitas,HU-13,Base de datos,Definir tabla de visitas y disponibilidad,2,Media,Fase 6 (T63),Por hacer
+PB-073,E08 Visitas,HU-13,Backend,Servicio de visitas con validación de choques de horario,5,Media,Fase 6 (T63),Por hacer
+PB-074,E08 Visitas,HU-13,Backend,"Endpoint para agendar, reprogramar y cancelar visitas",3,Media,Fase 6 (T63),Por hacer
+PB-075,E08 Visitas,HU-14,Backend,Endpoint para registrar el resultado de la visita,2,Media,Fase 6 (T63),Por hacer
+PB-076,E08 Visitas,HU-13,Frontend,Calendario y formulario de agenda de visitas,5,Media,Fase 6 (T63),Por hacer
+PB-077,E08 Visitas,HU-13,Frontend,Listado de visitas del cliente y del agente,3,Media,Fase 6 (T63),Por hacer
+PB-078,E08 Visitas,HU-14,Frontend,Formulario de resultado e interés del cliente,2,Media,Fase 6 (T63),Por hacer
+PB-079,E08 Visitas,HU-13,Pruebas,Probar agenda y choques de horario,3,Media,Fase 6 (T63),Por hacer
+PB-080,E08 Visitas,HU-14,Pruebas,Probar el registro de resultados de visita,2,Media,Fase 6 (T63),Por hacer
+PB-081,E09 Ofertas,HU-15,Base de datos,Definir tabla de ofertas y contraofertas,2,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-082,E09 Ofertas,HU-15,Backend,Modelo y servicio de ofertas con validación de monto,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-083,E09 Ofertas,HU-15,Backend,Endpoint para registrar una oferta,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-084,E09 Ofertas,HU-16,Backend,"Endpoint para aceptar, rechazar y contraofertar",5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-085,E09 Ofertas,HU-16,Backend,Notificar el cambio de estado de la oferta,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-086,E09 Ofertas,HU-15,Frontend,Formulario de oferta sobre un inmueble,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-087,E09 Ofertas,HU-16,Frontend,Pantalla de gestión de ofertas del agente,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-088,E09 Ofertas,HU-15,Pruebas,Probar creación de ofertas y validaciones,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-089,E09 Ofertas,HU-16,Pruebas,"Probar aceptación, rechazo y contraoferta",3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-090,"E10 Operaciones, ventas y alquileres",HU-17,Base de datos,"Definir tablas de operaciones, ventas y alquileres",3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-091,"E10 Operaciones, ventas y alquileres",HU-17,Backend,Modelo y servicio de operaciones con máquina de estados,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-092,"E10 Operaciones, ventas y alquileres",HU-17,Backend,Endpoint de registro de venta desde una oferta aceptada,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-093,"E10 Operaciones, ventas y alquileres",HU-17,Backend,"Registro de escritura, forma de pago y cierre de la venta",3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-094,"E10 Operaciones, ventas y alquileres",HU-18,Backend,Endpoint de alta de contrato de alquiler y vigencia,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-095,"E10 Operaciones, ventas y alquileres",HU-18,Backend,Cálculo de vencimientos y renovación de alquileres,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-096,"E10 Operaciones, ventas y alquileres",HU-19,Backend,Endpoint de consulta de operaciones por estado y período,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-097,"E10 Operaciones, ventas y alquileres",HU-17,Frontend,Pantalla de registro de venta,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-098,"E10 Operaciones, ventas y alquileres",HU-18,Frontend,Pantalla de gestión de alquileres y contratos,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-099,"E10 Operaciones, ventas y alquileres",HU-19,Frontend,Tablero de operaciones con filtros,5,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-100,"E10 Operaciones, ventas y alquileres",HU-17,Pruebas,Probar el flujo de venta de punta a punta,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-101,"E10 Operaciones, ventas y alquileres",HU-18,Pruebas,Probar contratos de alquiler y vencimientos,3,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-102,"E10 Operaciones, ventas y alquileres",HU-19,Pruebas,Probar consultas y permisos del tablero de operaciones,2,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-103,"E10 Operaciones, ventas y alquileres",HU-17,Pruebas,Probar transiciones inválidas de estado de operación,2,Alta,"Fases 6 y 7 (T64, T73)",Por hacer
+PB-104,E11 Franquicias,HU-20,Base de datos,Definir tablas de franquicias y sucursales,2,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-105,E11 Franquicias,HU-20,Backend,Endpoint público de solicitud de franquicia,3,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-106,E11 Franquicias,HU-21,Backend,CRUD de franquicias y sucursales,5,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-107,E11 Franquicias,HU-21,Backend,Aprobación o rechazo de solicitudes de franquicia,3,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-108,E11 Franquicias,HU-20,Frontend,Formulario de solicitud de franquicias,3,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-109,E11 Franquicias,HU-21,Frontend,Panel de administración de franquicias,5,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-110,E11 Franquicias,HU-20,Pruebas,Probar el envío de solicitudes,2,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-111,E11 Franquicias,HU-21,Pruebas,Probar el alta y aprobación de franquicias,2,Media,"Fases 6 y 7 (T65, T74)",Por hacer
+PB-112,E12 Comisiones,HU-22,Base de datos,Definir tabla de comisiones y porcentajes por operación,2,Media,Fase 6 (T65),Por hacer
+PB-113,E12 Comisiones,HU-22,Backend,Servicio de cálculo de comisión (venta y alquiler),5,Media,Fase 6 (T65),Por hacer
+PB-114,E12 Comisiones,HU-22,Backend,"Reparto de comisión entre agente, franquicia y casa central",3,Media,Fase 6 (T65),Por hacer
+PB-115,E12 Comisiones,HU-22,Backend,Endpoint de consulta y liquidación de comisiones,3,Media,Fase 6 (T65),Por hacer
+PB-116,E12 Comisiones,HU-22,Frontend,Pantalla de comisiones por agente y período,3,Media,Fase 6 (T65),Por hacer
+PB-117,E12 Comisiones,HU-22,Frontend,Exportar el listado de comisiones,2,Media,Fase 6 (T65),Por hacer
+PB-118,E12 Comisiones,HU-22,Pruebas,Probar el cálculo y reparto de comisiones,3,Media,Fase 6 (T65),Por hacer
+PB-119,E12 Comisiones,HU-22,Pruebas,Probar redondeos y casos límite,2,Media,Fase 6 (T65),Por hacer
+PB-120,E13 Chat,HU-23,Base de datos,Definir tablas de conversaciones y mensajes,2,Baja,Fase 6 (T65),Por hacer
+PB-121,E13 Chat,HU-23,Backend,Servicio de mensajería asociado a un inmueble,5,Baja,Fase 6 (T65),Por hacer
+PB-122,E13 Chat,HU-23,Backend,Endpoint de envío y lectura de mensajes,3,Baja,Fase 6 (T65),Por hacer
+PB-123,E13 Chat,HU-23,Frontend,Pantalla de conversaciones,5,Baja,Fase 6 (T65),Por hacer
+PB-124,E13 Chat,HU-23,Frontend,Actualización de mensajes y marca de leído,3,Baja,Fase 6 (T65),Por hacer
+PB-125,E13 Chat,HU-23,Pruebas,Probar envío y recepción de mensajes,3,Baja,Fase 6 (T65),Por hacer
+PB-126,E13 Chat,HU-23,Pruebas,Probar acceso al chat solo para participantes,2,Baja,Fase 6 (T65),Por hacer
+PB-127,E14 Auditorías,HU-24,Base de datos,"Definir tabla de auditoría (usuario, acción, fecha, entidad)",2,Media,Fase 6 (T65),Por hacer
+PB-128,E14 Auditorías,HU-24,Backend,Interceptor que registra acciones críticas,5,Media,Fase 6 (T65),Por hacer
+PB-129,E14 Auditorías,HU-24,Backend,Endpoint de consulta de auditoría con filtros,3,Media,Fase 6 (T65),Por hacer
+PB-130,E14 Auditorías,HU-24,Frontend,Pantalla de consulta de auditorías para el administrador,3,Media,Fase 6 (T65),Por hacer
+PB-131,E14 Auditorías,HU-24,Pruebas,Probar el registro de acciones auditadas,2,Media,Fase 6 (T65),Por hacer
+PB-132,E14 Auditorías,HU-24,Pruebas,Probar que solo el administrador accede a la auditoría,2,Media,Fase 6 (T65),Por hacer
+PB-133,E15 Integración y pruebas,HU-25,Backend,Integrar y validar todos los módulos del Backend,5,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-134,E15 Integración y pruebas,HU-25,Backend,Manejo global de excepciones y DTO de respuesta,3,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-135,E15 Integración y pruebas,HU-25,Frontend,Integrar el Frontend con el Backend (consumo de API),5,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-136,E15 Integración y pruebas,HU-25,Frontend,Integrar contenido multimedia y llamadas a la API,3,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-137,E15 Integración y pruebas,HU-25,Pruebas,Planificar y ejecutar pruebas funcionales,3,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-138,E15 Integración y pruebas,HU-25,Pruebas,Ejecutar pruebas de integración del sistema,5,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-139,E15 Integración y pruebas,HU-25,Pruebas,"Pruebas de seguridad (inyección SQL, XSS, accesos)",3,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-140,E15 Integración y pruebas,HU-25,Pruebas,"Detectar y corregir errores, y pruebas de regresión",5,Alta,"Fases 6, 7 y 8 (T66, T77, T79–T85)",Por hacer
+PB-141,E16 Documentación y entrega,HU-26,Documentación,Elaborar el diagrama de clases,3,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-142,E16 Documentación y entrega,HU-26,Documentación,Elaborar los diagramas de secuencia de los escenarios principales,5,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-143,E16 Documentación y entrega,HU-26,Documentación,Actualizar y revisar la documentación técnica,3,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-144,E16 Documentación y entrega,HU-26,Documentación,Elaborar el manual de usuario,5,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-145,E16 Documentación y entrega,HU-26,Documentación,Elaborar el manual de instalación y deploy,5,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-146,E16 Documentación y entrega,HU-26,Documentación,Documentar configuración y puesta en funcionamiento,3,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-147,E16 Documentación y entrega,HU-26,Documentación,Organizar documentación y evidencias de la carpeta de campo,3,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-148,E16 Documentación y entrega,HU-26,Documentación,Revisar y corregir manuales y carpeta de campo,2,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-149,E16 Documentación y entrega,HU-26,Documentación,Preparar la entrega final y la presentación,3,Media,"Fases 9, 10, 11 y 13",Por hacer
+PB-150,E16 Documentación y entrega,HU-26,Documentación,Ensayar la defensa del proyecto,2,Media,"Fases 9, 10, 11 y 13",Por hacer
